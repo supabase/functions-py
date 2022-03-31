@@ -1,3 +1,3 @@
 __version__ = "0.1.0"
 
-__all__ = ['supafunc']
+from supafunc import FunctionsClient
