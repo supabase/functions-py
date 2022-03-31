@@ -1,6 +1,6 @@
 from typing import Dict
 import httpx
-
+import asyncio
 
 class FunctionsClient:
     def __init__(self, url: str, headers: Dict):
@@ -11,12 +11,12 @@ class FunctionsClient:
         try:
             headers = invoke_options.get('headers')
             body = invoke_options.get('body')
-            response = await httpx.post(f"{self.url}/{function_name}", headers=headers)
+            response = httpx.post(f"{self.url}/{function_name}", headers=headers)
             is_relay_error = response.headers.get('x-relay-header')
             if is_relay_error and is_relay_error == 'true':
                 return {
                     "data": None,
-                    "error": response.tex
+                    "error": response.text
                 }
             # TODO: Convert type accordingly
 
@@ -26,3 +26,12 @@ class FunctionsClient:
                 "data": None,
                 "error": e
             }
+
+async def run_func():
+    fc = FunctionsClient("https://aipvgapcvmokjooimzlr.functions.supabase.co", {})
+    res = await fc.invoke("payment-sheet", {"responseType": "json"})
+
+if __name__ == "__main__":
+    asyncio.run(run_func())
+
+

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "functionz"
+name = "supafunc"
 version = "0.1.0"
 description = ""
 authors = ["Joel Lee <joel@joellee.org>"]
@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-
+httpx =  "^0.22.0"
 [tool.poetry.dev-dependencies]
 
 [build-system]
