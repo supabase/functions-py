@@ -1,5 +1,5 @@
-from typing import Dict
 import httpx
+from typing import Dict
 
 
 class FunctionsClient:
@@ -35,11 +35,11 @@ class FunctionsClient:
             Dictionary with data and/or error message
         """
         try:
-            headers = invoke_options.get('headers')
+            headers = {**self.headers, **invoke_options.get('headers')}
             body = invoke_options.get('body')
             response_type = invoke_options.get('responseType')
             response = httpx.post(
-                f"{self.url}/{function_name}", headers=headers)
+                f"{self.url}/{function_name}", headers=headers, json=body)
             is_relay_error = response.headers.get('x-relay-header')
             if is_relay_error and is_relay_error == 'true':
                 return {

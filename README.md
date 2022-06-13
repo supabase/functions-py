@@ -11,7 +11,7 @@ Deploy your function as per documentation.
 
 
 ```python3
-
+import asyncio
 from supafunc import FunctionsClient
 async def run_func():
     fc = FunctionsClient("https://<project_ref>.functions.supabase.co", {})
