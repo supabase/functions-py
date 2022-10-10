@@ -35,7 +35,7 @@ class FunctionsClient:
             Dictionary with data and/or error message
         """
         try:
-            headers = {**self.headers, **invoke_options.get('headers')}
+            headers = {**self.headers, **invoke_options.get('headers', {})}
             body = invoke_options.get('body')
             response_type = invoke_options.get('responseType')
             response = httpx.post(
@@ -49,7 +49,7 @@ class FunctionsClient:
             if response_type == 'json':
                 data = response.json()
             else:
-                data = response.data
+                data = response.content
             return {"data": data, "error": None}
         except Exception as e:
             return {
