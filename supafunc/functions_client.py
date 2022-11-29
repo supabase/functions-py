@@ -13,7 +13,7 @@ class FunctionsClient:
         Parameters
         ----------
         token : str
-            the new jwt token sent in the authorisation header
+            the new jwt token sent in the authorization header
         """
 
         self.headers["Authorization"] = f"Bearer {token}"
