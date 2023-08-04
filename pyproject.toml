@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "supafunc"
-version = "0.2.2"
+version = "0.2.3"
 description = "Library for Supabase Functions"
 authors = ["Joel Lee <joel@joellee.org>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 httpx =  "^0.24.0"
 [tool.poetry.dev-dependencies]
 
