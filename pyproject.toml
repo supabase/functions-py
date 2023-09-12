@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-httpx =  "^0.24.0"
+httpx =  ">=0.24,<0.26"
 [tool.poetry.dev-dependencies]
 
 [build-system]
