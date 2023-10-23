@@ -10,7 +10,7 @@ class AsyncFunctionsClient:
     def __init__(self, url: str, headers: Dict):
         self.url = url
         self.headers = {
-            "User-Agent": f"supabase-py/storage3 v{__version__}",
+            "User-Agent": f"supabase-py/functions-py v{__version__}",
             **headers,
         }
 

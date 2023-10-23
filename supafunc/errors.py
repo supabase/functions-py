@@ -32,7 +32,7 @@ class CustomFunctionsError(FunctionsError):
 
 class FunctionsHttpError(CustomFunctionsError):
     def __init__(self, message: str) -> None:
-        CustomFunctionsError.__init__(
+        super().__init__(
             self,
             message,
             "FunctionsHttpError",
