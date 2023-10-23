@@ -44,7 +44,7 @@ class FunctionsRelayError(CustomFunctionsError):
     """Base exception for relay errors."""
 
     def __init__(self, message: str) -> None:
-        CustomFunctionsError.__init__(
+        super().__init__(
             self,
             message,
             "FunctionsHttpError",
