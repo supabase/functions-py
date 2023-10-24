@@ -1,8 +1,8 @@
-from httpx import HTTPError, Response
 from typing import Any, Dict, Literal, Optional, Union
 
-from ..errors import FunctionsHttpError, FunctionsRelayError
+from httpx import HTTPError, Response
 
+from ..errors import FunctionsHttpError, FunctionsRelayError
 from ..utils import AsyncClient, __version__
 
 
@@ -25,8 +25,11 @@ class AsyncFunctionsClient:
             response = await client.request(method, url, json=json, headers=headers)
             try:
                 response.raise_for_status()
-            except HTTPError:
-                raise Exception({**response.json(), "statusCode": response.status_code})
+            except HTTPError as exc:
+                raise FunctionsHttpError(
+                    response.json().get("error")
+                    or f"An error occurred while requesting your edge function at {exc.request.url!r}."
+                )
 
             return response
 
@@ -41,7 +44,9 @@ class AsyncFunctionsClient:
 
         self.headers["Authorization"] = f"Bearer {token}"
 
-    async def invoke(self, function_name: str, invoke_options: Dict = {}) -> Dict:
+    async def invoke(
+        self, function_name: str, invoke_options: Optional[Dict] = None
+    ) -> Dict:
         """Invokes a function
 
         Parameters
@@ -55,16 +60,22 @@ class AsyncFunctionsClient:
         Returns
         -------
         Dict
-            Dictionary with data and/or error message
+            Dictionary with data
         """
-        headers = {**self.headers, **invoke_options.get("headers", {})}
-        body = invoke_options.get("body")
+        headers = self.headers
+        if invoke_options is not None:
+            headers.update(invoke_options.get("headers", {}))
+
+        body = invoke_options.get("body") if invoke_options else None
+        response_type = (
+            invoke_options.get("responseType") if invoke_options else "text/plain"
+        )
+
         if type(body) == str:
             headers["Content-Type"] = "text/plain"
         elif type(body) == dict:
             headers["Content-Type"] = "application/json"
 
-        response_type = invoke_options.get("responseType")
         response = await self._request(
             "POST", f"{self.url}/{function_name}", headers=headers, json=body
         )
@@ -72,9 +83,6 @@ class AsyncFunctionsClient:
 
         if is_relay_error and is_relay_error == "true":
             raise FunctionsRelayError(response.json().get("error"))
-
-        if response.is_success is not True:
-            raise FunctionsHttpError(response.json().get("error"))
 
         if response_type == "json":
             data = response.json()

@@ -1,13 +1,6 @@
 from __future__ import annotations
 
-from typing_extensions import TypedDict
-
-
-class FunctionsError(Exception):
-    def __init__(self, message: str) -> None:
-        Exception.__init__(self, message)
-        self.message = message
-        self.name = "FunctionsError"
+from typing import TypedDict
 
 
 class FunctionsApiErrorDict(TypedDict):
@@ -16,9 +9,9 @@ class FunctionsApiErrorDict(TypedDict):
     status: int
 
 
-class CustomFunctionsError(FunctionsError):
+class FunctionsError(Exception):
     def __init__(self, message: str, name: str, status: int) -> None:
-        FunctionsError.__init__(self, message)
+        super().__init__(message)
         self.name = name
         self.status = status
 
@@ -30,23 +23,21 @@ class CustomFunctionsError(FunctionsError):
         }
 
 
-class FunctionsHttpError(CustomFunctionsError):
+class FunctionsHttpError(FunctionsError):
     def __init__(self, message: str) -> None:
         super().__init__(
-            self,
             message,
             "FunctionsHttpError",
             400,
         )
 
 
-class FunctionsRelayError(CustomFunctionsError):
+class FunctionsRelayError(FunctionsError):
     """Base exception for relay errors."""
 
     def __init__(self, message: str) -> None:
         super().__init__(
-            self,
             message,
-            "FunctionsHttpError",
+            "FunctionsRelayError",
             400,
         )

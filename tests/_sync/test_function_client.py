@@ -1,12 +1,13 @@
-from httpx import Response
-from jwt import encode
 import pytest
 import respx
+from httpx import Response
+from jwt import encode
 
 from supafunc.errors import FunctionsHttpError, FunctionsRelayError
+
 from .clients import (
-    GOTRUE_JWT_SECRET,
     FUNCTIONS_URL,
+    GOTRUE_JWT_SECRET,
     function_client,
     mock_access_token,
 )
