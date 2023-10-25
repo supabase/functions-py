@@ -44,9 +44,7 @@ class SyncFunctionsClient:
 
         self.headers["Authorization"] = f"Bearer {token}"
 
-    def invoke(
-        self, function_name: str, invoke_options: Optional[Dict] = None
-    ) -> Dict:
+    def invoke(self, function_name: str, invoke_options: Optional[Dict] = None) -> Dict:
         """Invokes a function
 
         Parameters
