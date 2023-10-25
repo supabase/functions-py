@@ -12,9 +12,9 @@ Deploy your function as per documentation.
 
 ```python3
 import asyncio
-from supafunc import FunctionsClient
+from supafunc import AsyncFunctionsClient
 async def run_func():
-    fc = FunctionsClient("https://<project_ref>.functions.supabase.co", {})
+    fc = AsyncFunctionsClient("https://<project_ref>.functions.supabase.co", {})
     res = await fc.invoke("payment-sheet", {"responseType": "json"})
 
 if __name__ == "__main__":
