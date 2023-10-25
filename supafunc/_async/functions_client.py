@@ -13,25 +13,25 @@ class AsyncFunctionsClient:
             "User-Agent": f"supabase-py/functions-py v{__version__}",
             **headers,
         }
+        self._client = AsyncClient(base_url=self.url, headers=self.headers)
 
     async def _request(
         self,
         method: Literal["GET", "OPTIONS", "HEAD", "POST", "PUT", "PATCH", "DELETE"],
         url: str,
         headers: Union[Dict[str, str], None] = None,
-        json: Optional[dict[Any, Any]] = None,
+        json: Optional[Dict[Any, Any]] = None,
     ) -> Response:
-        async with AsyncClient(base_url=self.url, headers=self.headers) as client:
-            response = await client.request(method, url, json=json, headers=headers)
-            try:
-                response.raise_for_status()
-            except HTTPError as exc:
-                raise FunctionsHttpError(
-                    response.json().get("error")
-                    or f"An error occurred while requesting your edge function at {exc.request.url!r}."
-                ) from exc
+        response = await self._client.request(method, url, json=json, headers=headers)
+        try:
+            response.raise_for_status()
+        except HTTPError as exc:
+            raise FunctionsHttpError(
+                response.json().get("error")
+                or f"An error occurred while requesting your edge function at {exc.request.url!r}."
+            ) from exc
 
-            return response
+        return response
 
     def set_auth(self, token: str) -> None:
         """Updates the authorization header
