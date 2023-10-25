@@ -6,6 +6,10 @@
 
 ### Chore
 
+* chore: update readme with correct function call ([`88fc1a7`](https://github.com/supabase-community/functions-py/commit/88fc1a797ef7d848bd2e870ddadcf8d51d405989))
+
+* chore(release): bump version to v0.2.4 ([`e958722`](https://github.com/supabase-community/functions-py/commit/e95872200a7470da0e92bd95431eea1e20c66df3))
+
 * chore: bump autoflake version ([`fc3a7bb`](https://github.com/supabase-community/functions-py/commit/fc3a7bb5788feca7acbdf4662feee7cce87f2cda))
 
 ### Fix
@@ -15,6 +19,12 @@
 * fix: add single instance of client instantiation ([`4b8a134`](https://github.com/supabase-community/functions-py/commit/4b8a134ac675bdcc0387cb1d1d55068e1b6be253))
 
 ### Unknown
+
+* Temporary CI change to allow publishing of package ([`2d66f21`](https://github.com/supabase-community/functions-py/commit/2d66f21c01efcfd3ba34ab458c11977009580118))
+
+* Merge pull request #11 from supabase-community/silentworks/update-readme
+
+chore: update readme with correct function call ([`1dfe72e`](https://github.com/supabase-community/functions-py/commit/1dfe72eb28c35b0452e8f65d6e9612f9d4e80eb3))
 
 * Merge pull request #9 from supabase-community/silentworks/sync_functions
 
