@@ -29,7 +29,7 @@ class AsyncFunctionsClient:
                 raise FunctionsHttpError(
                     response.json().get("error")
                     or f"An error occurred while requesting your edge function at {exc.request.url!r}."
-                )
+                ) from exc
 
             return response
 
