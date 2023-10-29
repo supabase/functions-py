@@ -2,9 +2,28 @@
 
 
 
+## v0.3.0 (2023-10-29)
+
+### Feature
+
+* feat: downgrade httpx dep to 0.24.0 (#15) ([`1f37216`](https://github.com/supabase-community/functions-py/commit/1f37216326c26b65a3c9ccd1c29bea0a184c7624))
+
+### Fix
+
+* fix: update lockfile ([`d4856ec`](https://github.com/supabase-community/functions-py/commit/d4856ec8c6bbbde7efe7ca67c5137ba75e8e7bdb))
+
+### Unknown
+
+* Update pyproject.toml ([`dd43949`](https://github.com/supabase-community/functions-py/commit/dd4394994ae995dd6f953093da73cbd9c1344483))
+
+* Restoring order to the CI/CD pipeline ([`4f28dc6`](https://github.com/supabase-community/functions-py/commit/4f28dc628c9a9aac27a153121c90960bddb5c8bf))
+
+
 ## v0.2.4 (2023-10-25)
 
 ### Chore
+
+* chore(release): bump version to v0.2.4 ([`f618547`](https://github.com/supabase-community/functions-py/commit/f61854760d2d90d1352962e427d099da6dac50c1))
 
 * chore: update readme with correct function call ([`88fc1a7`](https://github.com/supabase-community/functions-py/commit/88fc1a797ef7d848bd2e870ddadcf8d51d405989))
 
