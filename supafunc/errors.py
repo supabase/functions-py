@@ -12,6 +12,7 @@ class FunctionsApiErrorDict(TypedDict):
 class FunctionsError(Exception):
     def __init__(self, message: str, name: str, status: int) -> None:
         super().__init__(message)
+        self.message = message
         self.name = name
         self.status = status
 

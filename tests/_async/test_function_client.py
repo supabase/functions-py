@@ -68,5 +68,17 @@ async def test_invoke_with_non_200_response():
             return_value=Response(404),
             side_effect=FunctionsHttpError("Http error!"),
         )
-        with pytest.raises(FunctionsHttpError, match=r"Http error!"):
+        with pytest.raises(FunctionsHttpError, match=r"Http error!") as exc:
             await function_client().invoke(function_name="hello-world")
+        assert exc.value.message == "Http error!"
+
+
+async def test_relay_error_message():
+    async with respx.mock:
+        respx.post(f"{FUNCTIONS_URL}/hello-world").mock(
+            return_value=Response(200, headers={"x-relay-header": "true"}),
+            side_effect=FunctionsRelayError("Relay error!"),
+        )
+        with pytest.raises(FunctionsRelayError, match=r"Relay error!") as exc:
+            await function_client().invoke(function_name="hello-world")
+        assert exc.value.message == "Relay error!"
