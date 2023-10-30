@@ -2,7 +2,22 @@
 
 
 
+## v0.3.1 (2023-10-30)
+
+### Fix
+
+* fix: exceptions now has message in dictionary (#16) ([`7273927`](https://github.com/supabase-community/functions-py/commit/7273927aa9d0e6eb9d9c9985a7ba5b42f9b6296d))
+
+* fix: exceptions now has message in dictionary
+
+Added tests to check for the messages. ([`07a813a`](https://github.com/supabase-community/functions-py/commit/07a813a02ffcf8999802cece27ee5278c140760d))
+
+
 ## v0.3.0 (2023-10-29)
+
+### Chore
+
+* chore(release): bump version to v0.3.0 ([`4e18712`](https://github.com/supabase-community/functions-py/commit/4e1871215e72efed058d5adf619ae2be0bb27b56))
 
 ### Feature
 
