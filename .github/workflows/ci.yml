@@ -38,7 +38,7 @@ jobs:
     needs: test
     if: ${{ !startsWith(github.event.head_commit.message, 'bump') && !startsWith(github.event.head_commit.message, 'chore') && github.ref == 'refs/heads/main' && contains(fromJSON('["push", "workflow_dispatch"]'), github.event_name) && github.repository_owner == 'supabase-community' }}
     runs-on: ubuntu-latest
-    name: "Bump version, create changelog and publish"
+    name: "supabase_functions: Bump version, create changelog and publish"
     environment:
       name: pypi
       url: https://pypi.org/p/supabase_functions
@@ -73,7 +73,7 @@ jobs:
     needs: test
     if: ${{ !startsWith(github.event.head_commit.message, 'bump') && !startsWith(github.event.head_commit.message, 'chore') && github.ref == 'refs/heads/main' && contains(fromJSON('["push", "workflow_dispatch"]'), github.event_name) && github.repository_owner == 'supabase-community' }}
     runs-on: ubuntu-latest
-    name: "Bump version, create changelog and publish"
+    name: "supafunc: Bump version and publish"
     environment:
       name: pypi
       url: https://pypi.org/p/supafunc
