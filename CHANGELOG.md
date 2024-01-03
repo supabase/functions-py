@@ -2,9 +2,18 @@
 
 
 
+## v0.3.3 (2024-01-03)
+
+### Fix
+
+* fix: update job to publish legacy package if current is released (#36) ([`2565c37`](https://github.com/supabase-community/functions-py/commit/2565c372124c08bc2a0bd8fd4b3005cf427062e3))
+
+
 ## v0.3.2 (2024-01-03)
 
 ### Chore
+
+* chore(release): bump version to v0.3.2 ([`403418c`](https://github.com/supabase-community/functions-py/commit/403418cc3a801be12e73f84e53daddd517cd5de0))
 
 * chore(deps-dev): bump isort from 5.12.0 to 5.13.0 (#24) ([`e7443ee`](https://github.com/supabase-community/functions-py/commit/e7443eeaad029a19a4276bae8ebfb899d042be3a))
 
