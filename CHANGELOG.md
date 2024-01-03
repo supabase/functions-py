@@ -2,7 +2,63 @@
 
 
 
+## v0.3.2 (2024-01-03)
+
+### Chore
+
+* chore(deps-dev): bump isort from 5.12.0 to 5.13.0 (#24) ([`e7443ee`](https://github.com/supabase-community/functions-py/commit/e7443eeaad029a19a4276bae8ebfb899d042be3a))
+
+* chore(deps-dev): bump isort from 5.12.0 to 5.13.0
+
+Bumps [isort](https://github.com/pycqa/isort) from 5.12.0 to 5.13.0.
+- [Release notes](https://github.com/pycqa/isort/releases)
+- [Changelog](https://github.com/PyCQA/isort/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/pycqa/isort/compare/5.12.0...5.13.0)
+
+---
+updated-dependencies:
+- dependency-name: isort
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`89a31c9`](https://github.com/supabase-community/functions-py/commit/89a31c9afb987063f18dd853bc826e4d7e815be3))
+
+* chore(deps-dev): bump pytest-asyncio from 0.21.1 to 0.23.2 (#22) ([`ab767f5`](https://github.com/supabase-community/functions-py/commit/ab767f5cf591679f38404cf609a42d853620c96f))
+
+* chore(deps-dev): bump pytest-asyncio from 0.21.1 to 0.23.2
+
+Bumps [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) from 0.21.1 to 0.23.2.
+- [Release notes](https://github.com/pytest-dev/pytest-asyncio/releases)
+- [Commits](https://github.com/pytest-dev/pytest-asyncio/compare/v0.21.1...v0.23.2)
+
+---
+updated-dependencies:
+- dependency-name: pytest-asyncio
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f6fb590`](https://github.com/supabase-community/functions-py/commit/f6fb5906e99e5194413ef8b7f819ba82ae47355e))
+
+* chore: allow manual workflow trigger for releases (#19) ([`07d1ffa`](https://github.com/supabase-community/functions-py/commit/07d1ffa6faa89219f7c73cbd4699436763d9d8bc))
+
+* chore: allow manual workflow trigger for releases ([`2a01399`](https://github.com/supabase-community/functions-py/commit/2a013997215f417fb0efe2badfc9b8a2d3686c48))
+
+### Ci
+
+* ci: update workflow with new pypi project name (#34) ([`7564e2b`](https://github.com/supabase-community/functions-py/commit/7564e2bc1d157a279175a3c8ad6fb2708e1700f4))
+
+### Fix
+
+* fix: update httpx and other dev dependencies (#35) ([`1f8897f`](https://github.com/supabase-community/functions-py/commit/1f8897f88acc4449cd697bd0e122bd4ee3bf0417))
+
+
 ## v0.3.1 (2023-10-30)
+
+### Chore
+
+* chore(release): bump version to v0.3.1 ([`b787f01`](https://github.com/supabase-community/functions-py/commit/b787f0187c1a5312ea368919afd24863ff2f40f0))
 
 ### Fix
 
