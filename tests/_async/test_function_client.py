@@ -3,7 +3,7 @@ import respx
 from httpx import Response
 from jwt import encode
 
-from supafunc.errors import FunctionsHttpError, FunctionsRelayError
+from supabase_functions.errors import FunctionsHttpError, FunctionsRelayError
 
 from .clients import (
     FUNCTIONS_URL,
