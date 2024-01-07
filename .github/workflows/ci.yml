@@ -91,7 +91,7 @@ jobs:
       - name: Rename Project
         id: rename_project
         run: make rename_project
-      
+
       - name: Python Semantic Release
         id: release
         uses: python-semantic-release/python-semantic-release@v8.0.0
