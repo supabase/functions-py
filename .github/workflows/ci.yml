@@ -88,8 +88,18 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.SILENTWORKS_PAT }}
 
+      - name: Rename Project
+        id: rename_project
+        run: make rename_project
+      
+      - name: Python Semantic Release
+        id: release
+        uses: python-semantic-release/python-semantic-release@v8.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         # NOTE: DO NOT wrap the conditional in ${{ }} as it will always evaluate to true.
         # See https://github.com/actions/runner/issues/1173
-        if: needs.publish.release.outputs.released == 'true'
+        if: steps.release.outputs.released == 'true'
