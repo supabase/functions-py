@@ -44,7 +44,9 @@ class SyncFunctionsClient:
 
         self.headers["Authorization"] = f"Bearer {token}"
 
-    def invoke(self, function_name: str, invoke_options: Optional[Dict] = None) -> Dict:
+    def invoke(
+        self, function_name: str, invoke_options: Optional[Dict] = None
+    ) -> Union[Dict, bytes]:
         """Invokes a function
 
         Parameters
@@ -54,11 +56,6 @@ class SyncFunctionsClient:
             `headers`: object representing the headers to send with the request
             `body`: the body of the request
             `responseType`: how the response should be parsed. The default is `json`
-
-        Returns
-        -------
-        Dict
-            Dictionary with data
         """
         headers = self.headers
         if invoke_options is not None:
