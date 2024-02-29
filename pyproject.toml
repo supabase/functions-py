@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "supabase_functions"
-version = "0.3.3"
+name = "supafunc"
+version = "0.4.0"
 description = "Library for Supabase Functions"
 authors = [
     "Joel Lee <joel@joellee.org>",

@@ -2,7 +2,18 @@
 
 
 
+## v0.4.0 (2024-02-29)
+
+### Feature
+
+* feat: add actions to dependabot.yml (#49) ([`0fa1c6b`](https://github.com/supabase-community/functions-py/commit/0fa1c6b91363714a0f889d73e52a47ca2e5be349))
+
+
 ## v0.3.3 (2024-01-03)
+
+### Chore
+
+* chore(release): bump version to v0.3.3 ([`cd02bb2`](https://github.com/supabase-community/functions-py/commit/cd02bb26e501adb6c66007f637af0ba87b37a6f0))
 
 ### Fix
 
