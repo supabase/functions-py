@@ -45,6 +45,8 @@ jobs:
     permissions:
       id-token: write # IMPORTANT: this permission is mandatory for trusted publishing
       contents: write # needed for github actions bot to write to repo
+    outputs:
+      is-released: ${{ steps.release.outputs.released }}
     steps:
       - name: Clone Repository
         uses: actions/checkout@v4
@@ -92,14 +94,8 @@ jobs:
         id: rename_project
         run: make rename_project
 
-      - name: Python Semantic Release
-        id: release
-        uses: python-semantic-release/python-semantic-release@v9.3.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         # NOTE: DO NOT wrap the conditional in ${{ }} as it will always evaluate to true.
         # See https://github.com/actions/runner/issues/1173
-        if: steps.release.outputs.released == 'true'
+        if: needs.publish.outputs.is-released == 'true'
