@@ -94,6 +94,12 @@ jobs:
         id: rename_project
         run: make rename_project
 
+      - name: Python Semantic Release
+        id: release
+        uses: python-semantic-release/python-semantic-release@v9.3.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         # NOTE: DO NOT wrap the conditional in ${{ }} as it will always evaluate to true.
