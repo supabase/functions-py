@@ -2,7 +2,18 @@
 
 
 
+## v0.4.5 (2024-03-23)
+
+### Fix
+
+* fix: configure poetry in github action (#71) ([`886f0fb`](https://github.com/supabase-community/functions-py/commit/886f0fb1590567527159df8944a9ab7d418e5f00))
+
+
 ## v0.4.4 (2024-03-23)
+
+### Chore
+
+* chore(release): bump version to v0.4.4 ([`ebb987f`](https://github.com/supabase-community/functions-py/commit/ebb987fc0df58d41a0307065d28ae14b6697cb3b))
 
 ### Fix
 
