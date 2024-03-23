@@ -2,9 +2,18 @@
 
 
 
+## v0.4.2 (2024-03-23)
+
+### Fix
+
+* fix: ci workflow (#68) ([`a747a72`](https://github.com/supabase-community/functions-py/commit/a747a729b35d31197d2b772d2f5ddc9e5ec9daed))
+
+
 ## v0.4.1 (2024-03-23)
 
 ### Chore
+
+* chore(release): bump version to v0.4.1 ([`f9a9a2f`](https://github.com/supabase-community/functions-py/commit/f9a9a2feede1cec36d9a9c9dc35d64594d4f1f84))
 
 * chore(deps-dev): bump python-semantic-release from 9.2.0 to 9.3.0 (#66)
 
