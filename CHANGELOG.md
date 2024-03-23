@@ -2,7 +2,18 @@
 
 
 
+## v0.4.3 (2024-03-23)
+
+### Fix
+
+* fix: add supafunc package distribution (#69) ([`d8a6f9a`](https://github.com/supabase-community/functions-py/commit/d8a6f9a89909c5d4bc3d6c11fb369407931c9cc5))
+
+
 ## v0.4.2 (2024-03-23)
+
+### Chore
+
+* chore(release): bump version to v0.4.2 ([`be38b0b`](https://github.com/supabase-community/functions-py/commit/be38b0b38ce878df629b1170b69ccbaf5e54ba03))
 
 ### Fix
 
