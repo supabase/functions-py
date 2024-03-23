@@ -2,7 +2,18 @@
 
 
 
+## v0.4.4 (2024-03-23)
+
+### Fix
+
+* fix: update to perform build via poetry (#70) ([`d518ce5`](https://github.com/supabase-community/functions-py/commit/d518ce5b81fef2ec30907c9261fde29522e37222))
+
+
 ## v0.4.3 (2024-03-23)
+
+### Chore
+
+* chore(release): bump version to v0.4.3 ([`5c707e9`](https://github.com/supabase-community/functions-py/commit/5c707e998df07afdd67c629f034e954564a1c65b))
 
 ### Fix
 
