@@ -94,11 +94,9 @@ jobs:
         id: rename_project
         run: make rename_project
 
-      - name: Python Semantic Release
-        id: release
-        uses: python-semantic-release/python-semantic-release@v9.3.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build package distribution directory
+        id: build_dist
+        run: make build_package
 
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
