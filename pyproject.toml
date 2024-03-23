@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "supafunc"
+name = "supabase_functions"
 version = "0.4.0"
 description = "Library for Supabase Functions"
 authors = [
@@ -27,7 +27,7 @@ pytest-asyncio = ">=0.21.1,<0.24.0"
 respx = ">=0.20.2,<0.22.0"
 
 [tool.semantic_release]
-version_variables = ["supafunc/utils.py:__version__"]
+version_variables = ["supabase_functions/utils.py:__version__"]
 version_toml = ["pyproject.toml:tool.poetry.version"]
 major_on_zero = false
 commit_message = "chore(release): bump version to v{version}"
