@@ -2,7 +2,102 @@
 
 
 
+## v0.4.1 (2024-03-23)
+
+### Chore
+
+* chore(deps-dev): bump python-semantic-release from 9.2.0 to 9.3.0 (#66)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`7d1ce46`](https://github.com/supabase-community/functions-py/commit/7d1ce467159fa08d8cde29056d52553b186319ce))
+
+* chore(deps): bump codecov/codecov-action from 3 to 4 (#50)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`ffe43b2`](https://github.com/supabase-community/functions-py/commit/ffe43b2ded9396a893d1c12d9a0077b70aed52df))
+
+* chore(deps): bump actions/checkout from 2 to 4 (#52)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`a809e98`](https://github.com/supabase-community/functions-py/commit/a809e98368b1ff8369c787439a5ba2d01a0ebfcf))
+
+* chore(deps): bump abatilo/actions-poetry from 2.2.0 to 3.0.0 (#54)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`4c1365c`](https://github.com/supabase-community/functions-py/commit/4c1365cbb94502cad0bc14032bbf48c74de1971f))
+
+* chore(deps): bump python-semantic-release/python-semantic-release from 8.0.0 to 9.3.0 (#65)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`cddbd1f`](https://github.com/supabase-community/functions-py/commit/cddbd1fe983e600ec4f9cf177a9b5e1f582a7ff0))
+
+* chore(deps-dev): bump pytest from 8.0.2 to 8.1.1 (#57)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`43a2741`](https://github.com/supabase-community/functions-py/commit/43a27418526d2cdd8739ad4f4c69e21a6743d43e))
+
+* chore(deps-dev): bump respx from 0.20.2 to 0.21.0 (#61)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`a1481fd`](https://github.com/supabase-community/functions-py/commit/a1481fd126b10719bd92061012a9efba0354530f))
+
+* chore(deps-dev): bump pytest-asyncio from 0.23.5 to 0.23.6 (#62)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`a821fe8`](https://github.com/supabase-community/functions-py/commit/a821fe80e5f2f2a68395e86ecb782856f1d18642))
+
+* chore(deps-dev): bump python-semantic-release from 9.1.1 to 9.2.0 (#60)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`719ed64`](https://github.com/supabase-community/functions-py/commit/719ed64f587c40bd2c98255d34c36788e1ccae1b))
+
+* chore(deps): bump actions/setup-python from 2 to 5 (#53)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`867bab3`](https://github.com/supabase-community/functions-py/commit/867bab3a99197da2a7437b903b52afc7a4e5d0a1))
+
+* chore(deps-dev): bump black from 24.2.0 to 24.3.0 (#58)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`0a84c99`](https://github.com/supabase-community/functions-py/commit/0a84c9951bc5ba78d218599bcd1d15a32909fdf9))
+
+* chore(deps-dev): bump pytest from 7.4.4 to 8.0.2 (#48)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`ae754cf`](https://github.com/supabase-community/functions-py/commit/ae754cfb4bc7e8832a7aac95f0d29077b2b7ad80))
+
+* chore(deps-dev): bump python-semantic-release from 8.7.0 to 9.1.1 (#47)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`f108ed7`](https://github.com/supabase-community/functions-py/commit/f108ed7691a2bd0801b946e96c7c16cec234972b))
+
+* chore(deps-dev): bump black from 23.12.1 to 24.2.0 (#43)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`ed09227`](https://github.com/supabase-community/functions-py/commit/ed092279ad8911f2664a92c0c1e332b3f42e4555))
+
+* chore(deps-dev): bump pytest-asyncio from 0.23.3 to 0.23.5 (#42)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`e87489b`](https://github.com/supabase-community/functions-py/commit/e87489b98c7fab52417e9b1f81a2fd4a83caf627))
+
+* chore: rename package to supabase_functions (#37) ([`5b5b5c9`](https://github.com/supabase-community/functions-py/commit/5b5b5c9071d74b7ec3e3da0dd83bbd6bd9303152))
+
+### Fix
+
+* fix: Update library name in pyproject file (#67) ([`5b5fe0d`](https://github.com/supabase-community/functions-py/commit/5b5fe0dcdfd81b1e91da47d49d6aecaad0505a3d))
+
+* fix: bump httpx from 0.25.2 to 0.27.0 (#46)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`03fcb25`](https://github.com/supabase-community/functions-py/commit/03fcb25d5fdca5ee07edac2ba769d797f54e1dc7))
+
+
 ## v0.4.0 (2024-02-29)
+
+### Chore
+
+* chore(release): bump version to v0.4.0 ([`555df53`](https://github.com/supabase-community/functions-py/commit/555df5384d2c8c8de7565f609f231923c118cd8f))
 
 ### Feature
 
