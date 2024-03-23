@@ -94,6 +94,16 @@ jobs:
         id: rename_project
         run: make rename_project
 
+      - name: Install and configure Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.7.1
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      - name: Install dependencies
+        run: poetry install
+
       - name: Build package distribution directory
         id: build_dist
         run: make build_package
