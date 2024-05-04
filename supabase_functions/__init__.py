@@ -11,15 +11,13 @@ __all__ = ["create_client"]
 @overload
 def create_client(
     url: str, headers: dict[str, str], *, is_async: Literal[True]
-) -> AsyncFunctionsClient:
-    ...
+) -> AsyncFunctionsClient: ...
 
 
 @overload
 def create_client(
     url: str, headers: dict[str, str], *, is_async: Literal[False]
-) -> SyncFunctionsClient:
-    ...
+) -> SyncFunctionsClient: ...
 
 
 def create_client(
