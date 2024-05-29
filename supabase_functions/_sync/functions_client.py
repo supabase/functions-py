@@ -13,7 +13,9 @@ class SyncFunctionsClient:
             "User-Agent": f"supabase-py/functions-py v{__version__}",
             **headers,
         }
-        self._client = SyncClient(base_url=self.url, headers=self.headers, verify=bool(verify))
+        self._client = SyncClient(
+            base_url=self.url, headers=self.headers, verify=bool(verify)
+        )
 
     def _request(
         self,
