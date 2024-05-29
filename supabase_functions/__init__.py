@@ -10,20 +10,20 @@ __all__ = ["create_client"]
 
 @overload
 def create_client(
-    url: str, headers: dict[str, str], *, is_async: Literal[True]
+    url: str, headers: dict[str, str], *, is_async: Literal[True], verify: bool
 ) -> AsyncFunctionsClient: ...
 
 
 @overload
 def create_client(
-    url: str, headers: dict[str, str], *, is_async: Literal[False]
+    url: str, headers: dict[str, str], *, is_async: Literal[False], verify: bool
 ) -> SyncFunctionsClient: ...
 
 
 def create_client(
-    url: str, headers: dict[str, str], *, is_async: bool
+    url: str, headers: dict[str, str], *, is_async: bool, verify: bool = True,
 ) -> Union[AsyncFunctionsClient, SyncFunctionsClient]:
     if is_async:
-        return AsyncFunctionsClient(url, headers)
+        return AsyncFunctionsClient(url, headers, verify)
     else:
-        return SyncFunctionsClient(url, headers)
+        return SyncFunctionsClient(url, headers, verify)
