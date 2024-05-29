@@ -13,7 +13,9 @@ class AsyncFunctionsClient:
             "User-Agent": f"supabase-py/functions-py v{__version__}",
             **headers,
         }
-        self._client = AsyncClient(base_url=self.url, headers=self.headers, verify=bool(verify))
+        self._client = AsyncClient(
+            base_url=self.url, headers=self.headers, verify=bool(verify)
+        )
 
     async def _request(
         self,
