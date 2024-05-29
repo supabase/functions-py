@@ -21,7 +21,11 @@ def create_client(
 
 
 def create_client(
-    url: str, headers: dict[str, str], *, is_async: bool, verify: bool = True,
+    url: str,
+    headers: dict[str, str],
+    *,
+    is_async: bool,
+    verify: bool = True,
 ) -> Union[AsyncFunctionsClient, SyncFunctionsClient]:
     if is_async:
         return AsyncFunctionsClient(url, headers, verify)
