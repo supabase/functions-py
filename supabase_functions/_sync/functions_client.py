@@ -14,7 +14,7 @@ class SyncFunctionsClient:
             **headers,
         }
         self._client = SyncClient(
-            base_url=self.url, headers=self.headers, verify=bool(verify)
+            base_url=self.url, headers=self.headers, verify=bool(verify), follow_redirects=True
         )
 
     def _request(

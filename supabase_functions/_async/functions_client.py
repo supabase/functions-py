@@ -14,7 +14,7 @@ class AsyncFunctionsClient:
             **headers,
         }
         self._client = AsyncClient(
-            base_url=self.url, headers=self.headers, verify=bool(verify)
+            base_url=self.url, headers=self.headers, verify=bool(verify), follow_redirects=True
         )
 
     async def _request(
