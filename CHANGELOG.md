@@ -2,7 +2,79 @@
 
 
 
+## v0.4.6 (2024-06-05)
+
+### Chore
+
+* chore(deps-dev): bump python-semantic-release from 9.8.0 to 9.8.1 (#110) ([`6167b4a`](https://github.com/supabase-community/functions-py/commit/6167b4a894b45062009ad67feefff16a1ba3ff61))
+
+* chore(deps-dev): bump pytest from 8.2.1 to 8.2.2 (#109) ([`9d83fc0`](https://github.com/supabase-community/functions-py/commit/9d83fc0ace5c5a9310a5c3878a2db3586fd97899))
+
+* chore(deps-dev): bump python-semantic-release from 9.7.3 to 9.8.0 (#104) ([`95f4c8e`](https://github.com/supabase-community/functions-py/commit/95f4c8ea317b62548dc196fdc81308b843e09f23))
+
+* chore(deps-dev): bump pytest from 8.2.0 to 8.2.1 (#103) ([`b9523b8`](https://github.com/supabase-community/functions-py/commit/b9523b82b60b9e205077db31d7838af0dba3ea80))
+
+* chore(deps-dev): bump pytest-asyncio from 0.23.6 to 0.23.7 (#102) ([`cee6c49`](https://github.com/supabase-community/functions-py/commit/cee6c49bdd155bbeab32a69977d5049148bcea5b))
+
+* chore(deps): bump python-semantic-release/python-semantic-release from 9.7.2 to 9.7.3 (#101) ([`556f667`](https://github.com/supabase-community/functions-py/commit/556f667e189b787d58895b0e74c71ad60e0b3d2f))
+
+* chore(deps-dev): bump python-semantic-release from 9.7.2 to 9.7.3 (#100) ([`0a7f65f`](https://github.com/supabase-community/functions-py/commit/0a7f65fbb4ad9f0fb6fc2d1b07538775d72fbc7a))
+
+* chore(deps): bump python-semantic-release/python-semantic-release from 9.5.0 to 9.7.2 (#99) ([`730f067`](https://github.com/supabase-community/functions-py/commit/730f067030d047fb8675b366bc428930f06aa4f1))
+
+* chore(deps-dev): bump python-semantic-release from 9.5.0 to 9.7.2 (#98) ([`6b392ac`](https://github.com/supabase-community/functions-py/commit/6b392aca65d47f215a3f51ff840d15e951da2cae))
+
+* chore(deps-dev): bump pytest from 8.1.1 to 8.2.0 (#89) ([`b0f272b`](https://github.com/supabase-community/functions-py/commit/b0f272b7412daee3b23395c9f1363e5290e06e30))
+
+* chore(deps-dev): bump black from 24.3.0 to 24.4.2 (#88) ([`b7944de`](https://github.com/supabase-community/functions-py/commit/b7944decb2584a519941ed53e8786754ac6765d8))
+
+* chore(ci): bump python-semantic-release/python-semantic-release from 9.4.1 to 9.5.0 (#86) ([`fbf01fe`](https://github.com/supabase-community/functions-py/commit/fbf01fe6ff2060152168b96083630d182a4f75b6))
+
+* chore(deps-dev): bump python-semantic-release from 9.4.1 to 9.5.0 (#85) ([`53653e0`](https://github.com/supabase-community/functions-py/commit/53653e027c31e2aecb686c06f188bd3914bb417d))
+
+* chore(deps-dev): bump python-semantic-release from 9.3.1 to 9.4.1 (#81) ([`42b8b95`](https://github.com/supabase-community/functions-py/commit/42b8b9577060dd445a6f7de5fb34e135084e450a))
+
+* chore(deps): bump python-semantic-release/python-semantic-release from 9.3.1 to 9.4.1 (#80) ([`9d7c165`](https://github.com/supabase-community/functions-py/commit/9d7c165c9b0f3b495b35d6e2d7f2942f8f056f16))
+
+* chore(deps-dev): bump respx from 0.21.0 to 0.21.1 (#77) ([`0cf2183`](https://github.com/supabase-community/functions-py/commit/0cf2183efb19ce6898bcdd7d4163534578944996))
+
+* chore(deps-dev): bump python-semantic-release from 9.3.0 to 9.3.1 (#76) ([`98ff552`](https://github.com/supabase-community/functions-py/commit/98ff5526ba1fd5b2abbb5fac3c10dba94864b4a6))
+
+* chore(deps-dev): bump pytest-cov from 4.1.0 to 5.0.0 (#75) ([`519fa30`](https://github.com/supabase-community/functions-py/commit/519fa3060f78ee1e3ba13dbf89fc49a5155a0710))
+
+* chore(deps): bump actions/cache from 3 to 4 (#74) ([`9f61fda`](https://github.com/supabase-community/functions-py/commit/9f61fdadc006ac7a390a1890cbf270e8eecf1c67))
+
+* chore(deps): bump abatilo/actions-poetry from 2 to 3 (#73) ([`e521357`](https://github.com/supabase-community/functions-py/commit/e5213574c32f87c1e47c647c86593e1d59c408c8))
+
+* chore(deps): bump python-semantic-release/python-semantic-release from 9.3.0 to 9.3.1 (#72)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`a0a9ad8`](https://github.com/supabase-community/functions-py/commit/a0a9ad8959625772b5e63ebecee96eb783e15d12))
+
+### Ci
+
+* ci(deps): bump python-semantic-release/python-semantic-release from 9.8.0 to 9.8.1 (#108) ([`1e162de`](https://github.com/supabase-community/functions-py/commit/1e162deaedd96e286d74d7cd86cbe66ad0add834))
+
+* ci(deps): bump python-semantic-release/python-semantic-release from 9.7.3 to 9.8.0 (#105) ([`66c3c1a`](https://github.com/supabase-community/functions-py/commit/66c3c1ad682fa0054ad3520cee9499d496923b03))
+
+### Fix
+
+* fix: add &#34;verify&#34; flag to the creation of client ([`f43038c`](https://github.com/supabase-community/functions-py/commit/f43038cf59d772a47420f8ae6cb3ca81b2808193))
+
+### Unknown
+
+* Follow redirects (#107) ([`ccb3f7f`](https://github.com/supabase-community/functions-py/commit/ccb3f7fa81e0e1257e6551a483900083b173135c))
+
+* Update .pre-commit-config.yaml (#93) ([`3201e5d`](https://github.com/supabase-community/functions-py/commit/3201e5d9e68c1e580ea5e61028b08dde4ba3123e))
+
+* Add stale bot (#92) ([`1fb54a8`](https://github.com/supabase-community/functions-py/commit/1fb54a80b211c93a8b7b8118842ab411dc33e22b))
+
+
 ## v0.4.5 (2024-03-23)
+
+### Chore
+
+* chore(release): bump version to v0.4.5 ([`d2b7efb`](https://github.com/supabase-community/functions-py/commit/d2b7efb158baf22a37d0652614c6aaee43fa389a))
 
 ### Fix
 
