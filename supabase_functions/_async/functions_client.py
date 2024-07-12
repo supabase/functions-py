@@ -17,9 +17,9 @@ class AsyncFunctionsClient:
             base_url=self.url,
             headers=self.headers,
             verify=bool(verify),
+            timeout=timeout,
             follow_redirects=True,
             http2=True,
-            timeout=timeout,
         )
 
     async def _request(
