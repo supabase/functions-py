@@ -3,6 +3,8 @@ from httpx import Client as BaseClient
 
 __version__ = "0.4.6"
 
+DEFAULT_FUNCTION_CLIENT_TIMEOUT = 5
+
 
 class SyncClient(BaseClient):
     def aclose(self) -> None:
