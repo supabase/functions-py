@@ -17,8 +17,9 @@ class SyncFunctionsClient:
             base_url=self.url,
             headers=self.headers,
             verify=bool(verify),
-            follow_redirects=True,
             timeout=timeout,
+            follow_redirects=True,
+            http2=True,
         )
 
     def _request(
