@@ -23,5 +23,5 @@ def function_client():
             "apiKey": mock_access_token(),
             "Authorization": f"Bearer {mock_access_token()}",
         },
-        timeout = 10
+        timeout=10,
     )
