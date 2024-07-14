@@ -1,10 +1,30 @@
 # CHANGELOG
 
+## v0.4.7 (2024-07-14)
 
+### Chore
+
+* chore(deps-dev): bump python-semantic-release from 9.8.3 to 9.8.5 (#119) ([`d3e1104`](https://github.com/supabase-community/functions-py/commit/d3e1104f221ce7274789856b5a3704f8aa25e60f))
+
+* chore(deps): bump python-semantic-release/python-semantic-release from 9.8.3 to 9.8.5 (#118) ([`0403bfb`](https://github.com/supabase-community/functions-py/commit/0403bfb84fb9e624974c16880f61a77cc244ff17))
+
+* chore(deps-dev): bump python-semantic-release from 9.8.1 to 9.8.3 (#114) ([`3850c82`](https://github.com/supabase-community/functions-py/commit/3850c82add00a26b5e1a74fda7ce750bae85699a))
+
+* chore(deps): bump python-semantic-release/python-semantic-release from 9.8.1 to 9.8.3 (#113) ([`c1c0d67`](https://github.com/supabase-community/functions-py/commit/c1c0d67881273f68689959b9858767aa4372c4ef))
+
+### Fix
+
+* fix: version bump (#121) ([`8f9b380`](https://github.com/supabase-community/functions-py/commit/8f9b3802759eec255f3f096ed818d64cd1ff3596))
+
+### Unknown
+
+* Enable HTTP2 (#115) ([`dbe0c73`](https://github.com/supabase-community/functions-py/commit/dbe0c73f025608adb0de1cb7b269de1eae23241d))
 
 ## v0.4.6 (2024-06-05)
 
 ### Chore
+
+* chore(release): bump version to v0.4.6 ([`f038cad`](https://github.com/supabase-community/functions-py/commit/f038cad35cbeaafbef9a26e4c853237a994ac9c6))
 
 * chore(deps-dev): bump python-semantic-release from 9.8.0 to 9.8.1 (#110) ([`6167b4a`](https://github.com/supabase-community/functions-py/commit/6167b4a894b45062009ad67feefff16a1ba3ff61))
 
@@ -69,7 +89,6 @@ Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.githu
 
 * Add stale bot (#92) ([`1fb54a8`](https://github.com/supabase-community/functions-py/commit/1fb54a80b211c93a8b7b8118842ab411dc33e22b))
 
-
 ## v0.4.5 (2024-03-23)
 
 ### Chore
@@ -79,7 +98,6 @@ Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.githu
 ### Fix
 
 * fix: configure poetry in github action (#71) ([`886f0fb`](https://github.com/supabase-community/functions-py/commit/886f0fb1590567527159df8944a9ab7d418e5f00))
-
 
 ## v0.4.4 (2024-03-23)
 
@@ -91,7 +109,6 @@ Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.githu
 
 * fix: update to perform build via poetry (#70) ([`d518ce5`](https://github.com/supabase-community/functions-py/commit/d518ce5b81fef2ec30907c9261fde29522e37222))
 
-
 ## v0.4.3 (2024-03-23)
 
 ### Chore
@@ -102,7 +119,6 @@ Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.githu
 
 * fix: add supafunc package distribution (#69) ([`d8a6f9a`](https://github.com/supabase-community/functions-py/commit/d8a6f9a89909c5d4bc3d6c11fb369407931c9cc5))
 
-
 ## v0.4.2 (2024-03-23)
 
 ### Chore
@@ -112,7 +128,6 @@ Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.githu
 ### Fix
 
 * fix: ci workflow (#68) ([`a747a72`](https://github.com/supabase-community/functions-py/commit/a747a729b35d31197d2b772d2f5ddc9e5ec9daed))
-
 
 ## v0.4.1 (2024-03-23)
 
@@ -206,7 +221,6 @@ Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.githu
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
 Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt; ([`03fcb25`](https://github.com/supabase-community/functions-py/commit/03fcb25d5fdca5ee07edac2ba769d797f54e1dc7))
 
-
 ## v0.4.0 (2024-02-29)
 
 ### Chore
@@ -217,7 +231,6 @@ Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.githu
 
 * feat: add actions to dependabot.yml (#49) ([`0fa1c6b`](https://github.com/supabase-community/functions-py/commit/0fa1c6b91363714a0f889d73e52a47ca2e5be349))
 
-
 ## v0.3.3 (2024-01-03)
 
 ### Chore
@@ -227,7 +240,6 @@ Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.githu
 ### Fix
 
 * fix: update job to publish legacy package if current is released (#36) ([`2565c37`](https://github.com/supabase-community/functions-py/commit/2565c372124c08bc2a0bd8fd4b3005cf427062e3))
-
 
 ## v0.3.2 (2024-01-03)
 
@@ -282,7 +294,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f6fb590`](https://g
 
 * fix: update httpx and other dev dependencies (#35) ([`1f8897f`](https://github.com/supabase-community/functions-py/commit/1f8897f88acc4449cd697bd0e122bd4ee3bf0417))
 
-
 ## v0.3.1 (2023-10-30)
 
 ### Chore
@@ -296,7 +307,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f6fb590`](https://g
 * fix: exceptions now has message in dictionary
 
 Added tests to check for the messages. ([`07a813a`](https://github.com/supabase-community/functions-py/commit/07a813a02ffcf8999802cece27ee5278c140760d))
-
 
 ## v0.3.0 (2023-10-29)
 
@@ -317,7 +327,6 @@ Added tests to check for the messages. ([`07a813a`](https://github.com/supabase-
 * Update pyproject.toml ([`dd43949`](https://github.com/supabase-community/functions-py/commit/dd4394994ae995dd6f953093da73cbd9c1344483))
 
 * Restoring order to the CI/CD pipeline ([`4f28dc6`](https://github.com/supabase-community/functions-py/commit/4f28dc628c9a9aac27a153121c90960bddb5c8bf))
-
 
 ## v0.2.4 (2023-10-25)
 
@@ -371,7 +380,6 @@ Co-authored-by: Anand &lt;40204976+anand2312@users.noreply.github.com&gt; ([`297
 Add pytests
 Throw errors instead of returning them ([`692022f`](https://github.com/supabase-community/functions-py/commit/692022fa4816de5ec3e4cd929352535af719bb87))
 
-
 ## v0.2.3 (2023-08-04)
 
 ### Chore
@@ -418,7 +426,6 @@ chore(deps): bump httpx from 0.23.0 to 0.24.1 ([`67ada27`](https://github.com/su
 
 fix: small typo in authorization ([`7c60eda`](https://github.com/supabase-community/functions-py/commit/7c60eda605337784a63a99a1405a6cb2c5f407f1))
 
-
 ## v0.2.2 (2022-10-10)
 
 ### Chore
@@ -436,7 +443,6 @@ fix: small typo in authorization ([`7c60eda`](https://github.com/supabase-commun
 * fix: add default for optional headers ([`02c838c`](https://github.com/supabase-community/functions-py/commit/02c838c73b692ea16912192278dd8550570553a1))
 
 * fix: pass down body ([`d3f9f61`](https://github.com/supabase-community/functions-py/commit/d3f9f6187b7bd7206f89eb3331fa6ea6f13dd58e))
-
 
 ## v0.1.4 (2022-03-31)
 
