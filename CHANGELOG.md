@@ -1,8 +1,20 @@
 # CHANGELOG
 
+## v0.5.0 (2024-07-21)
+
+### Chore
+
+* chore(deps-dev): bump pytest-asyncio from 0.23.7 to 0.23.8 (#122) ([`e1d064b`](https://github.com/supabase-community/functions-py/commit/e1d064b75fc828cdd3972ab64e65b9868043246c))
+
+### Feature
+
+* feat: add edge functions timeout (#120) ([`d0abc3c`](https://github.com/supabase-community/functions-py/commit/d0abc3c6a03ce0b2347379b0d7ffdc9f4d37b287))
+
 ## v0.4.7 (2024-07-14)
 
 ### Chore
+
+* chore(release): bump version to v0.4.7 ([`9d200a9`](https://github.com/supabase-community/functions-py/commit/9d200a97bf89c296e975d4d63aa15b12be6b646a))
 
 * chore(deps-dev): bump python-semantic-release from 9.8.3 to 9.8.5 (#119) ([`d3e1104`](https://github.com/supabase-community/functions-py/commit/d3e1104f221ce7274789856b5a3704f8aa25e60f))
 
