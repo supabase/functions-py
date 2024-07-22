@@ -66,21 +66,18 @@ class AsyncFunctionsClient:
         headers = self.headers
         if invoke_options is not None:
             headers.update(invoke_options.get("headers", {}))
+            response_type = invoke_options.get("responseType", "text/plain")
 
-        body = invoke_options.get("body") if invoke_options else None
-        response_type = (
-            invoke_options.get("responseType") if invoke_options else "text/plain"
-        )
+            # https://github.com/supabase/functions-js/blob/098537a0f5e1c2b2aca8891625c4deca846b0591/src/FunctionsClient.ts#L60-L62
+            region = invoke_options.get("region")
+            if region and isinstance(region, str) and region != "any":
+                headers["x-region"] = region.lower().strip()
 
-        if type(body) == str:
-            headers["Content-Type"] = "text/plain"
-        elif type(body) == dict:
-            headers["Content-Type"] = "application/json"
-
-        # https://github.com/supabase/functions-js/blob/098537a0f5e1c2b2aca8891625c4deca846b0591/src/FunctionsClient.ts#L60-L62
-        region = invoke_options.get("region")
-        if region and isinstance(region, str) and region != "any":
-            headers["x-region"] = region.lower().strip()
+            body = invoke_options.get("body")
+            if isinstance(body, str):
+                headers["Content-Type"] = "text/plain"
+            elif isinstance(body, dict):
+                headers["Content-Type"] = "application/json"
 
         response = await self._request(
             "POST", f"{self.url}/{function_name}", headers=headers, json=body
