@@ -65,6 +65,7 @@ class AsyncFunctionsClient:
         """
         headers = self.headers
         body = None
+        response_type = "text/plain"
         if invoke_options is not None:
             headers.update(invoke_options.get("headers", {}))
             response_type = invoke_options.get("responseType", "text/plain")
