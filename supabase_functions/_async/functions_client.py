@@ -73,11 +73,11 @@ class AsyncFunctionsClient:
             if region and isinstance(region, str) and region != "any":
                 headers["x-region"] = region.lower().strip()
 
-            body = invoke_options.get("body")
-            if isinstance(body, str):
-                headers["Content-Type"] = "text/plain"
-            elif isinstance(body, dict):
-                headers["Content-Type"] = "application/json"
+        body = invoke_options.get("body")
+        if isinstance(body, str):
+            headers["Content-Type"] = "text/plain"
+        elif isinstance(body, dict):
+            headers["Content-Type"] = "application/json"
 
         response = await self._request(
             "POST", f"{self.url}/{function_name}", headers=headers, json=body
