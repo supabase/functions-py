@@ -64,6 +64,7 @@ class AsyncFunctionsClient:
             `responseType`: how the response should be parsed. The default is `json`
         """
         headers = self.headers
+        body = None
         if invoke_options is not None:
             headers.update(invoke_options.get("headers", {}))
             response_type = invoke_options.get("responseType", "text/plain")
@@ -73,11 +74,11 @@ class AsyncFunctionsClient:
             if region and isinstance(region, str) and region != "any":
                 headers["x-region"] = region.lower().strip()
 
-        body = invoke_options.get("body")
-        if isinstance(body, str):
-            headers["Content-Type"] = "text/plain"
-        elif isinstance(body, dict):
-            headers["Content-Type"] = "application/json"
+            body = invoke_options.get("body")
+            if isinstance(body, str):
+                headers["Content-Type"] = "text/plain"
+            elif isinstance(body, dict):
+                headers["Content-Type"] = "application/json"
 
         response = await self._request(
             "POST", f"{self.url}/{function_name}", headers=headers, json=body
