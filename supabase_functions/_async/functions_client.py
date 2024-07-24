@@ -70,7 +70,6 @@ class AsyncFunctionsClient:
             headers.update(invoke_options.get("headers", {}))
             response_type = invoke_options.get("responseType", "text/plain")
 
-            # https://github.com/supabase/functions-js/blob/098537a0f5e1c2b2aca8891625c4deca846b0591/src/FunctionsClient.ts#L60-L62
             region = invoke_options.get("region")
             if region and isinstance(region, str) and region != "any":
                 headers["x-region"] = region.lower().strip()
