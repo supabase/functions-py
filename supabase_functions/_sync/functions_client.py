@@ -65,18 +65,21 @@ class SyncFunctionsClient:
             `responseType`: how the response should be parsed. The default is `json`
         """
         headers = self.headers
+        body = None
+        response_type = "text/plain"
         if invoke_options is not None:
             headers.update(invoke_options.get("headers", {}))
+            response_type = invoke_options.get("responseType", "text/plain")
 
-        body = invoke_options.get("body") if invoke_options else None
-        response_type = (
-            invoke_options.get("responseType") if invoke_options else "text/plain"
-        )
+            region = invoke_options.get("region")
+            if region and isinstance(region, str) and region != "any":
+                headers["x-region"] = region.lower().strip()
 
-        if type(body) == str:
-            headers["Content-Type"] = "text/plain"
-        elif type(body) == dict:
-            headers["Content-Type"] = "application/json"
+            body = invoke_options.get("body")
+            if isinstance(body, str):
+                headers["Content-Type"] = "text/plain"
+            elif isinstance(body, dict):
+                headers["Content-Type"] = "application/json"
 
         response = self._request(
             "POST", f"{self.url}/{function_name}", headers=headers, json=body
