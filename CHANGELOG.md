@@ -1,8 +1,24 @@
 # CHANGELOG
 
+## v0.5.1 (2024-07-25)
+
+### Chore
+
+* chore(deps): bump python-semantic-release/python-semantic-release from 9.8.5 to 9.8.6 (#125) ([`8db273a`](https://github.com/supabase-community/functions-py/commit/8db273add3dd634667171e575143bc5a2e27faa7))
+
+* chore(deps-dev): bump python-semantic-release from 9.8.5 to 9.8.6 (#124) ([`3b122ca`](https://github.com/supabase-community/functions-py/commit/3b122cab749abe862f5b4174cb70bd1e7f3d7ce8))
+
+* chore(deps-dev): bump pytest from 8.2.2 to 8.3.1 (#123) ([`e4c53f2`](https://github.com/supabase-community/functions-py/commit/e4c53f2421e17d3891b4ab3d57aa991da0039a86))
+
+### Fix
+
+* fix: add x-region support (#126) ([`59135d8`](https://github.com/supabase-community/functions-py/commit/59135d8de63030837a2730dd2631da746386b8fe))
+
 ## v0.5.0 (2024-07-21)
 
 ### Chore
+
+* chore(release): bump version to v0.5.0 ([`8496b3e`](https://github.com/supabase-community/functions-py/commit/8496b3e0d8eb0cbd7d4d9663b864496abcda5e0e))
 
 * chore(deps-dev): bump pytest-asyncio from 0.23.7 to 0.23.8 (#122) ([`e1d064b`](https://github.com/supabase-community/functions-py/commit/e1d064b75fc828cdd3972ab64e65b9868043246c))
 
