@@ -1,0 +1,9 @@
+{
+  "last-release-sha": "919eed01befa14a36a61133061e6832b09c5efd7",
+  "packages": {
+    ".": {
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "python"
+    }
+  }
+}
