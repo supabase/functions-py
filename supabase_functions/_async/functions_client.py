@@ -3,7 +3,8 @@ from typing import Any, Dict, Literal, Optional, Union
 from httpx import HTTPError, Response
 
 from ..errors import FunctionsHttpError, FunctionsRelayError
-from ..utils import AsyncClient, __version__
+from ..utils import AsyncClient
+from ..version import __version__
 
 
 class AsyncFunctionsClient:
