@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from typing import Literal, Union, overload
 
 from ._async.functions_client import AsyncFunctionsClient
