@@ -8,7 +8,14 @@ from ..version import __version__
 
 
 class AsyncFunctionsClient:
-    def __init__(self, url: str, headers: Dict, timeout: int, verify: bool = True):
+    def __init__(
+        self,
+        url: str,
+        headers: Dict,
+        timeout: int,
+        verify: bool = True,
+        proxy: str | None = None,
+    ):
         self.url = url
         self.headers = {
             "User-Agent": f"supabase-py/functions-py v{__version__}",
@@ -19,6 +26,7 @@ class AsyncFunctionsClient:
             headers=self.headers,
             verify=bool(verify),
             timeout=timeout,
+            proxy=proxy,
             follow_redirects=True,
             http2=True,
         )
