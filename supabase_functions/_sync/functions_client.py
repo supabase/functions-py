@@ -14,7 +14,7 @@ class SyncFunctionsClient:
         headers: Dict,
         timeout: int,
         verify: bool = True,
-        proxy: str | None = None,
+        proxy: Optional[str] = None,
     ):
         self.url = url
         self.headers = {
