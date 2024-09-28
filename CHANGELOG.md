@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.6.0](https://github.com/supabase/functions-py/compare/v0.5.1...v0.6.0) (2024-09-25)
+
+
+### Features
+
+* Proxy support ([#148](https://github.com/supabase/functions-py/issues/148)) ([7710a3f](https://github.com/supabase/functions-py/commit/7710a3f1068d44ecc21aac48c9f1f9a349fe8968))
+
 ## v0.5.1 (2024-07-25)
 
 ### Chore
