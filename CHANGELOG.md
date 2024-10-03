@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.6.1](https://github.com/supabase/functions-py/compare/v0.6.0...v0.6.1) (2024-10-02)
+
+
+### Bug Fixes
+
+* httpx minimum version update ([#150](https://github.com/supabase/functions-py/issues/150)) ([e784961](https://github.com/supabase/functions-py/commit/e7849619532c65f8d02908bc09b4abc60315b213))
+
 ## [0.6.0](https://github.com/supabase/functions-py/compare/v0.5.1...v0.6.0) (2024-09-25)
 
 
