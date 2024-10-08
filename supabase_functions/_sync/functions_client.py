@@ -35,7 +35,7 @@ class SyncFunctionsClient:
         self,
         method: Literal["GET", "OPTIONS", "HEAD", "POST", "PUT", "PATCH", "DELETE"],
         url: str,
-        headers: Union[Dict[str, str], None] = None,
+        headers: Optional[Dict[str, str]] = None,
         json: Optional[Dict[Any, Any]] = None,
     ) -> Response:
         response = self._client.request(method, url, json=json, headers=headers)
