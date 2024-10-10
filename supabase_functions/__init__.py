@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Literal, Union, overload
+from typing import Literal, Optional, Union, overload
 
 from ._async.functions_client import AsyncFunctionsClient
 from ._sync.functions_client import SyncFunctionsClient
