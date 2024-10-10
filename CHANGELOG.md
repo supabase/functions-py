@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.6.2](https://github.com/supabase/functions-py/compare/v0.6.1...v0.6.2) (2024-10-10)
+
+
+### Bug Fixes
+
+* Types to use Option[T] ([#152](https://github.com/supabase/functions-py/issues/152)) ([637bf4e](https://github.com/supabase/functions-py/commit/637bf4e33f1c6a845654dba923e6215ed8cd4a7f))
+
 ## [0.6.1](https://github.com/supabase/functions-py/compare/v0.6.0...v0.6.1) (2024-10-02)
 
 
