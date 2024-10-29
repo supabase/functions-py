@@ -15,5 +15,5 @@ def is_valid_str_arg(target: str) -> bool:
     return isinstance(target, str) and len(target.strip()) > 0
 
 
-def is_https_url(url: str) -> bool:
-    return urlparse(url).scheme == "https"
+def is_http_url(url: str) -> bool:
+    return urlparse(url).scheme in {"https", "http"}
