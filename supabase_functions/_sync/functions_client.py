@@ -3,7 +3,7 @@ from typing import Any, Dict, Literal, Optional, Union
 from httpx import HTTPError, Response
 
 from ..errors import FunctionsHttpError, FunctionsRelayError
-from ..utils import SyncClient, is_https_url, is_valid_str_arg
+from ..utils import SyncClient, is_http_url, is_valid_str_arg
 from ..version import __version__
 
 
@@ -16,7 +16,7 @@ class SyncFunctionsClient:
         verify: bool = True,
         proxy: Optional[str] = None,
     ):
-        if not is_https_url(url):
+        if not is_http_url(url):
             ValueError("url must be a valid HTTP URL string")
         self.url = url
         self.headers = {
