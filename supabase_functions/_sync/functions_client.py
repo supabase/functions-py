@@ -3,7 +3,7 @@ from typing import Any, Dict, Literal, Optional, Union
 from httpx import HTTPError, Response
 
 from ..errors import FunctionsHttpError, FunctionsRelayError
-from ..utils import SyncClient, is_valid_str_arg, is_https_url
+from ..utils import SyncClient, is_https_url, is_valid_str_arg
 from ..version import __version__
 
 
