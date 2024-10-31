@@ -3,7 +3,7 @@ from typing import Any, Dict, Literal, Optional, Union
 from httpx import HTTPError, Response
 
 from ..errors import FunctionsHttpError, FunctionsRelayError
-from ..utils import AsyncClient
+from ..utils import AsyncClient, is_http_url, is_valid_str_arg
 from ..version import __version__
 
 
@@ -16,6 +16,8 @@ class AsyncFunctionsClient:
         verify: bool = True,
         proxy: Optional[str] = None,
     ):
+        if not is_http_url(url):
+            ValueError("url must be a valid HTTP URL string")
         self.url = url
         self.headers = {
             "User-Agent": f"supabase-py/functions-py v{__version__}",
@@ -25,7 +27,7 @@ class AsyncFunctionsClient:
             base_url=self.url,
             headers=self.headers,
             verify=bool(verify),
-            timeout=timeout,
+            timeout=int(abs(timeout)),
             proxy=proxy,
             follow_redirects=True,
             http2=True,
@@ -73,6 +75,8 @@ class AsyncFunctionsClient:
             `body`: the body of the request
             `responseType`: how the response should be parsed. The default is `json`
         """
+        if not is_valid_str_arg(function_name):
+            raise ValueError("function_name must a valid string value.")
         headers = self.headers
         body = None
         response_type = "text/plain"
