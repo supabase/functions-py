@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.7.0](https://github.com/supabase/functions-py/compare/v0.6.2...v0.7.0) (2024-10-31)
+
+
+### Features
+
+* Check if url is an HTTP URL ([#156](https://github.com/supabase/functions-py/issues/156)) ([6123554](https://github.com/supabase/functions-py/commit/6123554c3916d091407c00eab1e4cfb0c57dce56))
+
 ## [0.6.2](https://github.com/supabase/functions-py/compare/v0.6.1...v0.6.2) (2024-10-15)
 
 
