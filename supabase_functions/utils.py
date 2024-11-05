@@ -1,9 +1,11 @@
+import re
 from urllib.parse import urlparse
 
 from httpx import AsyncClient as AsyncClient  # noqa: F401
 from httpx import Client as BaseClient
 
 DEFAULT_FUNCTION_CLIENT_TIMEOUT = 5
+BASE64URL_REGEX = r"^([a-z0-9_-]{4})*($|[a-z0-9_-]{3}$|[a-z0-9_-]{2}$)$"
 
 
 class SyncClient(BaseClient):
@@ -35,9 +37,8 @@ def is_valid_jwt(value: str) -> bool:
     if value.count(".") != 2:
         return False
 
-    okcr = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-."
-    for char in value:
-        if not char in okcr:
+    for part in value.split("."):
+        if not re.search(BASE64URL_REGEX, part, re.IGNORECASE):
             return False
 
     return True
