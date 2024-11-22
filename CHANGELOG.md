@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.8.0](https://github.com/supabase/functions-py/compare/v0.7.0...v0.8.0) (2024-11-22)
+
+
+### Features
+
+* Check if token is a JWT ([#159](https://github.com/supabase/functions-py/issues/159)) ([44f7b39](https://github.com/supabase/functions-py/commit/44f7b39ee5f7a4d7a8019bc02599b551fb71272d))
+
 ## [0.7.0](https://github.com/supabase/functions-py/compare/v0.6.2...v0.7.0) (2024-10-31)
 
 
