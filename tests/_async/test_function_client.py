@@ -3,6 +3,7 @@ import respx
 from httpx import Response
 from jwt import encode
 
+from supabase_functions import FunctionRegion
 from supabase_functions.errors import FunctionsHttpError, FunctionsRelayError
 
 from .clients import (
@@ -37,6 +38,18 @@ async def test_invoke():
             return_value=Response(200)
         )
         await function_client().invoke(function_name="hello-world")
+        assert route.called
+
+
+async def test_invoke_region():
+    with respx.mock:
+        route = respx.post(f"{FUNCTIONS_URL}/hello-world").mock(
+            return_value=Response(200)
+        )
+        await function_client().invoke(
+            function_name="hello-world",
+            invoke_options={"region": FunctionRegion("us-west-2")},
+        )
         assert route.called
 
 
