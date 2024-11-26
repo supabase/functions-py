@@ -91,7 +91,7 @@ class SyncFunctionsClient:
             try:
                 fn_region = FunctionRegion(region)
                 if fn_region and region != "any":
-                    headers["x-region"] = region.lower().strip()
+                    headers["x-region"] = region.strip()
             except ValueError as e:
                 # print(e)
                 pass  # In the future can become an error/warning.
