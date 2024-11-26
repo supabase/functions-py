@@ -3,7 +3,7 @@ from typing import Any, Dict, Literal, Optional, Union
 from httpx import HTTPError, Response
 
 from ..errors import FunctionsHttpError, FunctionsRelayError
-from ..utils import SyncClient, is_http_url, is_valid_jwt, is_valid_str_arg
+from ..utils import SyncClient, is_http_url, is_valid_jwt, is_valid_str_arg, FunctionRegion
 from ..version import __version__
 
 
@@ -88,8 +88,13 @@ class SyncFunctionsClient:
             response_type = invoke_options.get("responseType", "text/plain")
 
             region = invoke_options.get("region")
-            if region and isinstance(region, str) and region != "any":
-                headers["x-region"] = region.lower().strip()
+            try:
+                fn_region = FunctionRegion(region)
+                if fn_region and region != "any":
+                    headers["x-region"] = region.lower().strip()
+            except ValueError as e:
+                # print(e)
+                pass  # In the future can become an error/warning.
 
             body = invoke_options.get("body")
             if isinstance(body, str):
