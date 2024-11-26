@@ -5,6 +5,7 @@ from httpx import HTTPError, Response
 from ..errors import FunctionsHttpError, FunctionsRelayError
 from ..utils import SyncClient, is_http_url, is_valid_jwt, is_valid_str_arg, FunctionRegion
 from ..version import __version__
+from warnings import warn
 
 
 class SyncFunctionsClient:
@@ -88,13 +89,12 @@ class SyncFunctionsClient:
             response_type = invoke_options.get("responseType", "text/plain")
 
             region = invoke_options.get("region")
-            try:
-                fn_region = FunctionRegion(region)
-                if fn_region and region != "any":
-                    headers["x-region"] = region.strip()
-            except ValueError as e:
-                # print(e)
-                pass  # In the future can become an error/warning.
+            if not isinstance(region, FunctionRegion):
+                warn(f"Use FunctionRegion({region})")
+                region = FunctionRegion(region)
+
+            if region and region.value != "any":
+                headers["x-region"] = region.value
 
             body = invoke_options.get("body")
             if isinstance(body, str):
