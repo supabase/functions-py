@@ -95,12 +95,13 @@ class SyncFunctionsClient:
             response_type = invoke_options.get("responseType", "text/plain")
 
             region = invoke_options.get("region")
-            if not isinstance(region, FunctionRegion):
-                warn(f"Use FunctionRegion({region})")
-                region = FunctionRegion(region)
+            if region:
+                if not isinstance(region, FunctionRegion):
+                    warn(f"Use FunctionRegion({region})")
+                    region = FunctionRegion(region)
 
-            if region and region.value != "any":
-                headers["x-region"] = region.value
+                if region.value != "any":
+                    headers["x-region"] = region.value
 
             body = invoke_options.get("body")
             if isinstance(body, str):
