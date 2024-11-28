@@ -1,9 +1,16 @@
 from typing import Any, Dict, Literal, Optional, Union
+from warnings import warn
 
 from httpx import HTTPError, Response
 
 from ..errors import FunctionsHttpError, FunctionsRelayError
-from ..utils import AsyncClient, is_http_url, is_valid_jwt, is_valid_str_arg
+from ..utils import (
+    AsyncClient,
+    FunctionRegion,
+    is_http_url,
+    is_valid_jwt,
+    is_valid_str_arg,
+)
 from ..version import __version__
 
 
@@ -88,8 +95,13 @@ class AsyncFunctionsClient:
             response_type = invoke_options.get("responseType", "text/plain")
 
             region = invoke_options.get("region")
-            if region and isinstance(region, str) and region != "any":
-                headers["x-region"] = region.lower().strip()
+            if region:
+                if not isinstance(region, FunctionRegion):
+                    warn(f"Use FunctionRegion({region})")
+                    region = FunctionRegion(region)
+
+                if region.value != "any":
+                    headers["x-region"] = region.value
 
             body = invoke_options.get("body")
             if isinstance(body, str):

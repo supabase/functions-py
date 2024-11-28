@@ -4,6 +4,7 @@ from typing import Literal, Optional, Union, overload
 
 from ._async.functions_client import AsyncFunctionsClient
 from ._sync.functions_client import SyncFunctionsClient
+from .utils import FunctionRegion
 
 __all__ = ["create_client"]
 
