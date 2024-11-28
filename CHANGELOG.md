@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.9.0](https://github.com/supabase/functions-py/compare/v0.8.0...v0.9.0) (2024-11-28)
+
+
+### Features
+
+* rewrite region enumerated literals as Enums ([#164](https://github.com/supabase/functions-py/issues/164)) ([3ca78fa](https://github.com/supabase/functions-py/commit/3ca78fa14ceb6b0cb2b70ee6dd7a1229fe974cf4))
+
 ## [0.8.0](https://github.com/supabase/functions-py/compare/v0.7.0...v0.8.0) (2024-11-22)
 
 
