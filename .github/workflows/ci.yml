@@ -38,7 +38,7 @@ jobs:
 
       - name: Run coverage
         run: |
-          coverage run --source=supabase_functions
+          coverage run --source=supabase_functions -m pytest
           coverage report --show-missing --skip-empty
 
 
