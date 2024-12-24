@@ -34,7 +34,7 @@ jobs:
 
       - name: Install dev dependencies for Coveralls
         run: |
-          pip install --upgrade pip wheel coverage coveralls
+          pip install --upgrade pip wheel coverage coveralls pytest pytest-cov
 
       - name: Run coverage
         run: |
