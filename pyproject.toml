@@ -25,7 +25,7 @@ pytest-cov = ">=4,<7"
 unasync-cli = "^0.0.9"
 pytest-asyncio = ">=0.21.1,<0.26.0"
 respx = ">=0.20.2,<0.22.0"
-coveralls = "^3.3.1"
+coveralls = "^4.0.0"
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
