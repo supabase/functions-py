@@ -32,9 +32,14 @@ jobs:
       - name: Run Tests
         run: make run_tests
 
-      - name: Install dev dependencies for coveralls
+      - name: Install dev dependencies for Coveralls
         run: |
           pip install --upgrade pip wheel coverage coveralls
+
+      - name: Run coverage
+        run: |
+          coverage run --source=supabase_functions -m pytest
+          coverage report --show-missing --skip-empty
 
 
   release-please:
