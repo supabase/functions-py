@@ -32,11 +32,10 @@ jobs:
       - name: Run Tests
         run: make run_tests
 
-      - name: Upload coverage results to Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./lcov.info
+      - name: Install dev dependencies for coveralls
+        run: |
+          pip install --upgrade pip wheel coverage coveralls
+
 
   release-please:
     needs: test
