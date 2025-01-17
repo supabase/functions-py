@@ -24,7 +24,6 @@ pytest = ">=7.4.2,<9.0.0"
 pytest-cov = ">=4,<7"
 unasync-cli = "^0.0.9"
 pytest-asyncio = ">=0.21.1,<0.26.0"
-respx = ">=0.20.2,<0.23.0"
 coveralls = "^3.3.0"
 
 [tool.pytest.ini_options]

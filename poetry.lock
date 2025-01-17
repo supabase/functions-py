@@ -763,20 +763,6 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
-name = "respx"
-version = "0.22.0"
-description = "A utility for mocking out the Python HTTPX and HTTP Core libraries."
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "respx-0.22.0-py2.py3-none-any.whl", hash = "sha256:631128d4c9aba15e56903fb5f66fb1eff412ce28dd387ca3a81339e52dbd3ad0"},
-    {file = "respx-0.22.0.tar.gz", hash = "sha256:3c8924caa2a50bd71aefc07aa812f2466ff489f1848c96e954a5362d17095d91"},
-]
-
-[package.dependencies]
-httpx = ">=0.25.0"
-
-[[package]]
 name = "setuptools"
 version = "58.5.3"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
@@ -927,4 +913,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "8632a7a69be4b73b9e8c7fd506be0ed9816b4deea39bc0702dbb74e8f84ab341"
+content-hash = "2f498f5c4184c69ad66f8a0bbaa00aa0e1236861861fd3c4f9ec50d10985969f"
