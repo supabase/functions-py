@@ -24,7 +24,7 @@ class AsyncFunctionsClient:
         proxy: Optional[str] = None,
     ):
         if not is_http_url(url):
-            ValueError("url must be a valid HTTP URL string")
+            raise ValueError("url must be a valid HTTP URL string")
         self.url = url
         self.headers = {
             "User-Agent": f"supabase-py/functions-py v{__version__}",
@@ -68,7 +68,7 @@ class AsyncFunctionsClient:
         """
 
         if not is_valid_jwt(token):
-            ValueError("token must be a valid JWT authorization token string.")
+            raise ValueError("token must be a valid JWT authorization token string.")
 
         self.headers["Authorization"] = f"Bearer {token}"
 
