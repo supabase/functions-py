@@ -1,97 +1,183 @@
+from unittest.mock import Mock, patch
+
 import pytest
-import respx
-from httpx import Response
-from jwt import encode
+from httpx import HTTPError, Response, Timeout
 
-from supabase_functions import FunctionRegion
+# Import the class to test
+from supabase_functions import SyncFunctionsClient
 from supabase_functions.errors import FunctionsHttpError, FunctionsRelayError
-
-from .clients import (
-    FUNCTIONS_URL,
-    GOTRUE_JWT_SECRET,
-    function_client,
-    mock_access_token,
-)
+from supabase_functions.utils import FunctionRegion
+from supabase_functions.version import __version__
 
 
-def test_auth_header():
-    client = function_client()
-    assert client.headers.get("Authorization") == f"Bearer {mock_access_token()}"
+@pytest.fixture
+def valid_url():
+    return "https://example.com"
 
 
-def test_set_auth():
-    auth_token = encode(
-        {
-            "sub": "9876543210",
-            "role": "my_anon_key",
-        },
-        GOTRUE_JWT_SECRET,
+@pytest.fixture
+def default_headers():
+    return {"Authorization": "Bearer valid.jwt.token"}
+
+
+@pytest.fixture
+def client(valid_url, default_headers):
+    return SyncFunctionsClient(
+        url=valid_url, headers=default_headers, timeout=10, verify=True
     )
-    client = function_client()
-    client.set_auth(token=auth_token)
-    assert client.headers.get("Authorization") == f"Bearer {auth_token}"
 
 
-def test_invoke():
-    with respx.mock:
-        route = respx.post(f"{FUNCTIONS_URL}/hello-world").mock(
-            return_value=Response(200)
+def test_init_with_valid_params(valid_url, default_headers):
+    client = SyncFunctionsClient(
+        url=valid_url, headers=default_headers, timeout=10, verify=True
+    )
+    assert client.url == valid_url
+    assert "User-Agent" in client.headers
+    assert client.headers["User-Agent"] == f"supabase-py/functions-py v{__version__}"
+    assert client._client.timeout == Timeout(10)
+
+
+@pytest.mark.parametrize("invalid_url", ["not-a-url", "ftp://invalid.com", "", None])
+def test_init_with_invalid_url(invalid_url, default_headers):
+    with pytest.raises(ValueError, match="url must be a valid HTTP URL string"):
+        SyncFunctionsClient(url=invalid_url, headers=default_headers, timeout=10)
+
+
+def test_set_auth_valid_token(client: SyncFunctionsClient):
+    valid_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U"
+    client.set_auth(valid_token)
+    assert client.headers["Authorization"] == f"Bearer {valid_token}"
+
+
+def test_set_auth_invalid_token(client: SyncFunctionsClient):
+    invalid_token = "invalid-token"
+    with pytest.raises(
+        ValueError, match="token must be a valid JWT authorization token string."
+    ):
+        client.set_auth(invalid_token)
+
+
+def test_invoke_success_json(client: SyncFunctionsClient):
+    mock_response = Mock(spec=Response)
+    mock_response.json.return_value = {"message": "success"}
+    mock_response.raise_for_status = Mock()
+    mock_response.headers = {}
+
+    with patch.object(client._client, "request", new_callable=Mock) as mock_request:
+        mock_request.return_value = mock_response
+
+        result = client.invoke(
+            "test-function", {"responseType": "json", "body": {"test": "data"}}
         )
-        function_client().invoke(function_name="hello-world")
-        assert route.called
+
+        assert result == {"message": "success"}
+        mock_request.assert_called_once()
+        _, kwargs = mock_request.call_args
+        assert kwargs["json"] == {"test": "data"}
 
 
-def test_invoke_region():
-    with respx.mock:
-        route = respx.post(f"{FUNCTIONS_URL}/hello-world").mock(
-            return_value=Response(200)
-        )
-        function_client().invoke(
-            function_name="hello-world",
-            invoke_options={"region": FunctionRegion("us-west-2")},
-        )
-        assert route.called
+def test_invoke_success_binary(client: SyncFunctionsClient):
+    mock_response = Mock(spec=Response)
+    mock_response.content = b"binary content"
+    mock_response.raise_for_status = Mock()
+    mock_response.headers = {}
+
+    with patch.object(client._client, "request", new_callable=Mock) as mock_request:
+        mock_request.return_value = mock_response
+
+        result = client.invoke("test-function")
+
+        assert result == b"binary content"
+        mock_request.assert_called_once()
 
 
-def test_invoke_with_json_response():
-    with respx.mock:
-        route = respx.post(f"{FUNCTIONS_URL}/hello-world").mock(
-            return_value=Response(200, json={"world": "Supabase"})
-        )
-        response = function_client().invoke(
-            function_name="hello-world", invoke_options={"responseType": "json"}
-        )
-        assert route.called
-        assert response == {"world": "Supabase"}
+def test_invoke_with_region(client: SyncFunctionsClient):
+    mock_response = Mock(spec=Response)
+    mock_response.json.return_value = {"message": "success"}
+    mock_response.raise_for_status = Mock()
+    mock_response.headers = {}
+
+    with patch.object(client._client, "request", new_callable=Mock) as mock_request:
+        mock_request.return_value = mock_response
+
+        client.invoke("test-function", {"region": FunctionRegion("us-east-1")})
+
+        _, kwargs = mock_request.call_args
+        assert kwargs["headers"]["x-region"] == "us-east-1"
 
 
-def test_invoke_with_relay_error():
-    with respx.mock:
-        respx.post(f"{FUNCTIONS_URL}/hello-world").mock(
-            return_value=Response(200, headers={"x-relay-header": "true"}),
-            side_effect=FunctionsRelayError("Relay error!"),
-        )
-        with pytest.raises(FunctionsRelayError, match=r"Relay error!"):
-            function_client().invoke(function_name="hello-world")
+def test_invoke_with_region_string(client: SyncFunctionsClient):
+    mock_response = Mock(spec=Response)
+    mock_response.json.return_value = {"message": "success"}
+    mock_response.raise_for_status = Mock()
+    mock_response.headers = {}
+
+    with patch.object(client._client, "request", new_callable=Mock) as mock_request:
+        mock_request.return_value = mock_response
+
+        with pytest.warns(UserWarning, match=r"Use FunctionRegion\(us-east-1\)"):
+            client.invoke("test-function", {"region": "us-east-1"})
+
+        _, kwargs = mock_request.call_args
+        assert kwargs["headers"]["x-region"] == "us-east-1"
 
 
-def test_invoke_with_non_200_response():
-    with respx.mock:
-        respx.post(f"{FUNCTIONS_URL}/hello-world").mock(
-            return_value=Response(404),
-            side_effect=FunctionsHttpError("Http error!"),
-        )
-        with pytest.raises(FunctionsHttpError, match=r"Http error!") as exc:
-            function_client().invoke(function_name="hello-world")
-        assert exc.value.message == "Http error!"
+def test_invoke_with_http_error(client: SyncFunctionsClient):
+    mock_response = Mock(spec=Response)
+    mock_response.json.return_value = {"error": "Custom error message"}
+    mock_response.raise_for_status.side_effect = HTTPError("HTTP Error")
+    mock_response.headers = {}
+
+    with patch.object(client._client, "request", new_callable=Mock) as mock_request:
+        mock_request.return_value = mock_response
+
+        with pytest.raises(FunctionsHttpError, match="Custom error message"):
+            client.invoke("test-function")
 
 
-def test_relay_error_message():
-    with respx.mock:
-        respx.post(f"{FUNCTIONS_URL}/hello-world").mock(
-            return_value=Response(200, headers={"x-relay-header": "true"}),
-            side_effect=FunctionsRelayError("Relay error!"),
-        )
-        with pytest.raises(FunctionsRelayError, match=r"Relay error!") as exc:
-            function_client().invoke(function_name="hello-world")
-        assert exc.value.message == "Relay error!"
+def test_invoke_with_relay_error(client: SyncFunctionsClient):
+    mock_response = Mock(spec=Response)
+    mock_response.json.return_value = {"error": "Relay error message"}
+    mock_response.raise_for_status = Mock()
+    mock_response.headers = {"x-relay-header": "true"}
+
+    with patch.object(client._client, "request", new_callable=Mock) as mock_request:
+        mock_request.return_value = mock_response
+
+        with pytest.raises(FunctionsRelayError, match="Relay error message"):
+            client.invoke("test-function")
+
+
+def test_invoke_invalid_function_name(client: SyncFunctionsClient):
+    with pytest.raises(ValueError, match="function_name must a valid string value."):
+        client.invoke("")
+
+
+def test_invoke_with_string_body(client: SyncFunctionsClient):
+    mock_response = Mock(spec=Response)
+    mock_response.json.return_value = {"message": "success"}
+    mock_response.raise_for_status = Mock()
+    mock_response.headers = {}
+
+    with patch.object(client._client, "request", new_callable=Mock) as mock_request:
+        mock_request.return_value = mock_response
+
+        client.invoke("test-function", {"body": "string data"})
+
+        _, kwargs = mock_request.call_args
+        assert kwargs["headers"]["Content-Type"] == "text/plain"
+
+
+def test_invoke_with_json_body(client: SyncFunctionsClient):
+    mock_response = Mock(spec=Response)
+    mock_response.json.return_value = {"message": "success"}
+    mock_response.raise_for_status = Mock()
+    mock_response.headers = {}
+
+    with patch.object(client._client, "request", new_callable=Mock) as mock_request:
+        mock_request.return_value = mock_response
+
+        client.invoke("test-function", {"body": {"key": "value"}})
+
+        _, kwargs = mock_request.call_args
+        assert kwargs["headers"]["Content-Type"] == "application/json"
