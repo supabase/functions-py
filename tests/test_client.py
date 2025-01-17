@@ -1,11 +1,8 @@
-import pytest
 from typing import Dict
 
-from supabase_functions import (
-    create_client,
-    AsyncFunctionsClient,
-    SyncFunctionsClient,
-)
+import pytest
+
+from supabase_functions import AsyncFunctionsClient, SyncFunctionsClient, create_client
 
 
 @pytest.fixture
@@ -41,7 +38,7 @@ def test_create_sync_client(valid_url, valid_headers):
 
 
 def test_type_hints():
-    from typing import get_type_hints, Union
+    from typing import Union, get_type_hints
 
     hints = get_type_hints(create_client)
 

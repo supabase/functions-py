@@ -1,15 +1,15 @@
-import pytest
 import sys
-from urllib.parse import urlparse
 from typing import Any
 
+import pytest
+
 from supabase_functions.utils import (
+    BASE64URL_REGEX,
     FunctionRegion,
-    is_valid_str_arg,
+    SyncClient,
     is_http_url,
     is_valid_jwt,
-    SyncClient,
-    BASE64URL_REGEX,
+    is_valid_str_arg,
 )
 
 
