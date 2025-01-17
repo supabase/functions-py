@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.9.2](https://github.com/supabase/functions-py/compare/v0.9.1...v0.9.2) (2025-01-17)
+
+
+### Bug Fixes
+
+* ci pipeline issue with renaming the project ([#182](https://github.com/supabase/functions-py/issues/182)) ([658a84d](https://github.com/supabase/functions-py/commit/658a84d95542defd328427e5566910106e2540b9))
+
 ## [0.9.1](https://github.com/supabase/functions-py/compare/v0.9.0...v0.9.1) (2025-01-17)
 
 
