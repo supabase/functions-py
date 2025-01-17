@@ -27,7 +27,7 @@ rename_package_dir:
 	mv supabase_functions supafunc
 
 rename_package:
-	sed -i 's/supabase_functions/supafunc/g' pyproject.toml tests/_async/clients.py tests/_sync/clients.py tests/_async/test_function_client.py tests/_sync/test_function_client.py README.md
+	sed -i 's/supabase_functions/supafunc/g' pyproject.toml tests/test_client.py tests/test_errors.py tests/test_utils.py tests/_async/test_function_client.py tests/_sync/test_function_client.py README.md
 
 build_package:
 	poetry build
