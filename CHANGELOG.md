@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.9.1](https://github.com/supabase/functions-py/compare/v0.9.0...v0.9.1) (2025-01-17)
+
+
+### Bug Fixes
+
+* add full test coverage ([#180](https://github.com/supabase/functions-py/issues/180)) ([2bc3d3c](https://github.com/supabase/functions-py/commit/2bc3d3ccb4d62c98c5d13d25c2073fb86f84feb6))
+
 ## [0.9.0](https://github.com/supabase/functions-py/compare/v0.8.0...v0.9.0) (2024-11-28)
 
 
