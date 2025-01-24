@@ -48,7 +48,7 @@ class AsyncFunctionsClient:
         json: Optional[Dict[Any, Any]] = None,
     ) -> Response:
 
-        user_data = {'data': json} if isinstance(json, str) else {'json': json}
+        user_data = {"data": json} if isinstance(json, str) else {"json": json}
         response = await self._client.request(method, url, **user_data, headers=headers)
 
         try:
