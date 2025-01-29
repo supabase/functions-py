@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.9.3](https://github.com/supabase/functions-py/compare/v0.9.2...v0.9.3) (2025-01-29)
+
+
+### Bug Fixes
+
+* body types other than JSON are improperly handled when invoking a function ([#186](https://github.com/supabase/functions-py/issues/186)) ([d1ba63a](https://github.com/supabase/functions-py/commit/d1ba63a87336e475c6a765c61d1a259a2770930f))
+
 ## [0.9.2](https://github.com/supabase/functions-py/compare/v0.9.1...v0.9.2) (2025-01-17)
 
 
