@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.9.4](https://github.com/supabase/functions-py/compare/v0.9.3...v0.9.4) (2025-03-26)
+
+
+### Bug Fixes
+
+* custom error status code from edge function returned correctly ([#196](https://github.com/supabase/functions-py/issues/196)) ([7077a38](https://github.com/supabase/functions-py/commit/7077a38fb6c303f3c2f6d78f1265a43b04e7ec59))
+
 ## [0.9.3](https://github.com/supabase/functions-py/compare/v0.9.2...v0.9.3) (2025-01-29)
 
 
