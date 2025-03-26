@@ -54,9 +54,14 @@ class AsyncFunctionsClient:
         try:
             response.raise_for_status()
         except HTTPError as exc:
+            status_code = None
+            if hasattr(response, "status_code"):
+                status_code = response.status_code
+
             raise FunctionsHttpError(
                 response.json().get("error")
-                or f"An error occurred while requesting your edge function at {exc.request.url!r}."
+                or f"An error occurred while requesting your edge function at {exc.request.url!r}.",
+                status_code,
             ) from exc
 
         return response

@@ -25,20 +25,20 @@ class FunctionsError(Exception):
 
 
 class FunctionsHttpError(FunctionsError):
-    def __init__(self, message: str) -> None:
+    def __init__(self, message: str, code: int | None = None) -> None:
         super().__init__(
             message,
             "FunctionsHttpError",
-            400,
+            400 if code is None else code,
         )
 
 
 class FunctionsRelayError(FunctionsError):
     """Base exception for relay errors."""
 
-    def __init__(self, message: str) -> None:
+    def __init__(self, message: str, code: int | None = None) -> None:
         super().__init__(
             message,
             "FunctionsRelayError",
-            400,
+            400 if code is None else code,
         )
