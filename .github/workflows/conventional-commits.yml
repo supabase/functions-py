@@ -16,6 +16,9 @@ on:
       - reopened
       - ready_for_review
 
+permissions:
+  contents: read
+
 jobs:
   check-conventional-commits:
     runs-on: ubuntu-latest
