@@ -1,11 +1,10 @@
 from typing import Any, Dict, Literal, Optional, Union
 from warnings import warn
 
-from httpx import HTTPError, Response
+from httpx import AsyncClient, HTTPError, Response
 
 from ..errors import FunctionsHttpError, FunctionsRelayError
 from ..utils import (
-    AsyncClient,
     FunctionRegion,
     is_http_url,
     is_valid_jwt,
@@ -19,8 +18,9 @@ class AsyncFunctionsClient:
         self,
         url: str,
         headers: Dict,
-        timeout: int,
-        verify: bool = True,
+        httpx: Optional[AsyncClient] = None,
+        timeout: Optional[int] = None,
+        verify: Optional[bool] = None,
         proxy: Optional[str] = None,
     ):
         if not is_http_url(url):
@@ -30,15 +30,33 @@ class AsyncFunctionsClient:
             "User-Agent": f"supabase-py/functions-py v{__version__}",
             **headers,
         }
-        self._client = AsyncClient(
-            base_url=self.url,
-            headers=self.headers,
-            verify=bool(verify),
-            timeout=int(abs(timeout)),
-            proxy=proxy,
-            follow_redirects=True,
-            http2=True,
-        )
+
+        if timeout is not None:
+            warn("The 'timeout' parameter is deprecated. Please configure it in the httpx client instead.", DeprecationWarning, stacklevel=2)
+        if verify is not None:
+            warn("The 'verify' parameter is deprecated. Please configure it in the httpx client instead.", DeprecationWarning, stacklevel=2)
+        if proxy is not None:
+            warn("The 'proxy' parameter is deprecated. Please configure it in the httpx client instead.", DeprecationWarning, stacklevel=2)
+
+        self.verify = bool(verify) if verify is not None else True
+        self.timeout = int(abs(timeout)) if timeout is not None else 60
+
+        if httpx is not None:
+            self._client = httpx
+            self._client.base_url = self.url
+            self._client.headers = self.headers
+            self._client.follow_redirects = True
+            self._client.http2 = True
+        else:
+            self._client = AsyncClient(
+                base_url=self.url,
+                headers=self.headers,
+                verify=self.verify,
+                timeout=self.timeout,
+                proxy=proxy,
+                follow_redirects=True,
+                http2=True,
+            )
 
     async def _request(
         self,
