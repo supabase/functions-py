@@ -33,7 +33,7 @@ class SyncFunctionsClient:
         self._client = SyncClient(
             base_url=self.url,
             headers=self.headers,
-            verify=bool(verify),
+            verify=verify,
             timeout=int(abs(timeout)),
             proxy=proxy,
             follow_redirects=True,
