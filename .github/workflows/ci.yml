@@ -16,6 +16,7 @@ jobs:
   ci:
     uses: supabase/actions/.github/workflows/python-ci.yml@main
     with:
+      test-command: 'make run_tests'
       enable-publish: true
       package-name: 'supabase_functions'
     secrets:
