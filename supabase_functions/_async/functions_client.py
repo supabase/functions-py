@@ -22,6 +22,7 @@ class AsyncFunctionsClient:
         timeout: int,
         verify: bool = True,
         proxy: Optional[str] = None,
+        http_client: Optional[AsyncClient] = None,
     ):
         if not is_http_url(url):
             raise ValueError("url must be a valid HTTP URL string")
@@ -30,15 +31,21 @@ class AsyncFunctionsClient:
             "User-Agent": f"supabase-py/functions-py v{__version__}",
             **headers,
         }
-        self._client = AsyncClient(
-            base_url=self.url,
-            headers=self.headers,
-            verify=bool(verify),
-            timeout=int(abs(timeout)),
-            proxy=proxy,
-            follow_redirects=True,
-            http2=True,
-        )
+
+        if http_client is not None:
+            http_client.base_url = self.url
+            http_client.headers.update({**self.headers})
+            self._client = http_client
+        else:
+            self._client = AsyncClient(
+                base_url=self.url,
+                headers=self.headers,
+                verify=bool(verify),
+                timeout=int(abs(timeout)),
+                proxy=proxy,
+                follow_redirects=True,
+                http2=True,
+            )
 
     async def _request(
         self,

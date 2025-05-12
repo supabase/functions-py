@@ -6,7 +6,7 @@ from httpx import HTTPError, Response, Timeout
 # Import the class to test
 from supabase_functions import SyncFunctionsClient
 from supabase_functions.errors import FunctionsHttpError, FunctionsRelayError
-from supabase_functions.utils import FunctionRegion
+from supabase_functions.utils import FunctionRegion, SyncClient
 from supabase_functions.version import __version__
 
 
@@ -181,3 +181,26 @@ def test_invoke_with_json_body(client: SyncFunctionsClient):
 
         _, kwargs = mock_request.call_args
         assert kwargs["headers"]["Content-Type"] == "application/json"
+
+
+def test_init_with_httpx_client():
+    # Create a custom httpx client with specific options
+    custom_client = SyncClient(
+        timeout=Timeout(30), follow_redirects=True, max_redirects=5
+    )
+
+    # Initialize the functions client with the custom httpx client
+    client = SyncFunctionsClient(
+        url="https://example.com",
+        headers={"Authorization": "Bearer token"},
+        timeout=30,
+        http_client=custom_client,
+    )
+
+    # Verify the custom client options are preserved
+    assert client._client.timeout == Timeout(30)
+    assert client._client.follow_redirects is True
+    assert client._client.max_redirects == 5
+
+    # Verify the client is properly configured with our custom client
+    assert client._client is custom_client
