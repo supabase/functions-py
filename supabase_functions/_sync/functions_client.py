@@ -19,8 +19,8 @@ class SyncFunctionsClient:
         self,
         url: str,
         headers: Dict,
-        timeout: int,
-        verify: bool = True,
+        timeout: Optional[int] = None,
+        verify: Optional[bool] = None,
         proxy: Optional[str] = None,
         http_client: Optional[SyncClient] = None,
     ):
@@ -32,6 +32,28 @@ class SyncFunctionsClient:
             **headers,
         }
 
+        if timeout is not None:
+            warn(
+                "The 'timeout' parameter is deprecated. Please configure it in the httpx client instead.",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+        if verify is not None:
+            warn(
+                "The 'verify' parameter is deprecated. Please configure it in the httpx client instead.",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+        if proxy is not None:
+            warn(
+                "The 'proxy' parameter is deprecated. Please configure it in the httpx client instead.",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+
+        self.verify = bool(verify) if verify is not None else True
+        self.timeout = int(abs(timeout)) if timeout is not None else 60
+
         if http_client is not None:
             http_client.base_url = self.url
             http_client.headers.update({**self.headers})
@@ -40,8 +62,8 @@ class SyncFunctionsClient:
             self._client = SyncClient(
                 base_url=self.url,
                 headers=self.headers,
-                verify=bool(verify),
-                timeout=int(abs(timeout)),
+                verify=self.verify,
+                timeout=self.timeout,
                 proxy=proxy,
                 follow_redirects=True,
                 http2=True,
