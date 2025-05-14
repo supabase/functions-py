@@ -34,19 +34,19 @@ class AsyncFunctionsClient:
 
         if timeout is not None:
             warn(
-                "The 'timeout' parameter is deprecated. Please configure it in the httpx client instead.",
+                "The 'timeout' parameter is deprecated. Please configure it in the http client instead.",
                 DeprecationWarning,
                 stacklevel=2,
             )
         if verify is not None:
             warn(
-                "The 'verify' parameter is deprecated. Please configure it in the httpx client instead.",
+                "The 'verify' parameter is deprecated. Please configure it in the http client instead.",
                 DeprecationWarning,
                 stacklevel=2,
             )
         if proxy is not None:
             warn(
-                "The 'proxy' parameter is deprecated. Please configure it in the httpx client instead.",
+                "The 'proxy' parameter is deprecated. Please configure it in the http client instead.",
                 DeprecationWarning,
                 stacklevel=2,
             )
