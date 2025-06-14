@@ -201,15 +201,16 @@ async def test_invoke_with_json_body(client: AsyncFunctionsClient):
 
 async def test_init_with_httpx_client():
     # Create a custom httpx client with specific options
+    headers = {"x-user-agent": "my-app/0.0.1"}
     custom_client = AsyncClient(
-        timeout=Timeout(30), follow_redirects=True, max_redirects=5
+        timeout=Timeout(30), follow_redirects=True, max_redirects=5, headers=headers
     )
 
     # Initialize the functions client with the custom httpx client
     client = AsyncFunctionsClient(
         url="https://example.com",
         headers={"Authorization": "Bearer token"},
-        timeout=30,
+        timeout=10,
         http_client=custom_client,
     )
 
@@ -217,6 +218,7 @@ async def test_init_with_httpx_client():
     assert client._client.timeout == Timeout(30)
     assert client._client.follow_redirects is True
     assert client._client.max_redirects == 5
+    assert client._client.headers.get("x-user-agent") == "my-app/0.0.1"
 
     # Verify the client is properly configured with our custom client
     assert client._client is custom_client
