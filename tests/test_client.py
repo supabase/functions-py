@@ -42,8 +42,8 @@ def test_type_hints():
 
     hints = get_type_hints(create_client)
 
-    assert hints["url"] == str
+    assert hints["url"] is str
     assert hints["headers"] == dict[str, str]
-    assert hints["is_async"] == bool
-    assert hints["verify"] == bool
+    assert hints["is_async"] is bool
+    assert hints["verify"] is bool
     assert hints["return"] == Union[AsyncFunctionsClient, SyncFunctionsClient]

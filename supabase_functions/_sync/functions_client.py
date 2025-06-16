@@ -1,12 +1,11 @@
 from typing import Any, Dict, Literal, Optional, Union
 from warnings import warn
 
-from httpx import HTTPError, Response
+from httpx import Client, HTTPError, Response
 
 from ..errors import FunctionsHttpError, FunctionsRelayError
 from ..utils import (
     FunctionRegion,
-    SyncClient,
     is_http_url,
     is_valid_jwt,
     is_valid_str_arg,
@@ -19,9 +18,10 @@ class SyncFunctionsClient:
         self,
         url: str,
         headers: Dict,
-        timeout: int,
-        verify: bool = True,
+        timeout: Optional[int] = None,
+        verify: Optional[bool] = None,
         proxy: Optional[str] = None,
+        http_client: Optional[Client] = None,
     ):
         if not is_http_url(url):
             raise ValueError("url must be a valid HTTP URL string")
@@ -30,15 +30,43 @@ class SyncFunctionsClient:
             "User-Agent": f"supabase-py/functions-py v{__version__}",
             **headers,
         }
-        self._client = SyncClient(
-            base_url=self.url,
-            headers=self.headers,
-            verify=bool(verify),
-            timeout=int(abs(timeout)),
-            proxy=proxy,
-            follow_redirects=True,
-            http2=True,
-        )
+
+        if timeout is not None:
+            warn(
+                "The 'timeout' parameter is deprecated. Please configure it in the http client instead.",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+        if verify is not None:
+            warn(
+                "The 'verify' parameter is deprecated. Please configure it in the http client instead.",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+        if proxy is not None:
+            warn(
+                "The 'proxy' parameter is deprecated. Please configure it in the http client instead.",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+
+        self.verify = bool(verify) if verify is not None else True
+        self.timeout = int(abs(timeout)) if timeout is not None else 60
+
+        if http_client is not None:
+            http_client.base_url = self.url
+            http_client.headers.update({**self.headers})
+            self._client = http_client
+        else:
+            self._client = Client(
+                base_url=self.url,
+                headers=self.headers,
+                verify=self.verify,
+                timeout=self.timeout,
+                proxy=proxy,
+                follow_redirects=True,
+                http2=True,
+            )
 
     def _request(
         self,

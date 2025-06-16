@@ -19,6 +19,7 @@ build_sync:
 	poetry run unasync supabase_functions tests
 	sed -i '0,/SyncMock, /{s/SyncMock, //}' tests/_sync/test_function_client.py
 	sed -i 's/SyncMock/Mock/g' tests/_sync/test_function_client.py
+	sed -i 's/SyncClient/Client/g' supabase_functions/_sync/functions_client.py tests/_sync/test_function_client.py
 
 
 rename_project: rename_package_dir rename_package

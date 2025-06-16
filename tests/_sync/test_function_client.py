@@ -1,7 +1,7 @@
 from unittest.mock import Mock, patch
 
 import pytest
-from httpx import HTTPError, Response, Timeout
+from httpx import Client, HTTPError, Response, Timeout
 
 # Import the class to test
 from supabase_functions import SyncFunctionsClient
@@ -181,3 +181,28 @@ def test_invoke_with_json_body(client: SyncFunctionsClient):
 
         _, kwargs = mock_request.call_args
         assert kwargs["headers"]["Content-Type"] == "application/json"
+
+
+def test_init_with_httpx_client():
+    # Create a custom httpx client with specific options
+    headers = {"x-user-agent": "my-app/0.0.1"}
+    custom_client = Client(
+        timeout=Timeout(30), follow_redirects=True, max_redirects=5, headers=headers
+    )
+
+    # Initialize the functions client with the custom httpx client
+    client = SyncFunctionsClient(
+        url="https://example.com",
+        headers={"Authorization": "Bearer token"},
+        timeout=10,
+        http_client=custom_client,
+    )
+
+    # Verify the custom client options are preserved
+    assert client._client.timeout == Timeout(30)
+    assert client._client.follow_redirects is True
+    assert client._client.max_redirects == 5
+    assert client._client.headers.get("x-user-agent") == "my-app/0.0.1"
+
+    # Verify the client is properly configured with our custom client
+    assert client._client is custom_client
