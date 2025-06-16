@@ -1,11 +1,10 @@
 from typing import Any, Dict, Literal, Optional, Union
 from warnings import warn
 
-from httpx import HTTPError, Response
+from httpx import AsyncClient, HTTPError, Response
 
 from ..errors import FunctionsHttpError, FunctionsRelayError
 from ..utils import (
-    AsyncClient,
     FunctionRegion,
     is_http_url,
     is_valid_jwt,

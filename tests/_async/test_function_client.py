@@ -1,12 +1,12 @@
 from unittest.mock import AsyncMock, Mock, patch
 
 import pytest
-from httpx import HTTPError, Response, Timeout
+from httpx import AsyncClient, HTTPError, Response, Timeout
 
 # Import the class to test
 from supabase_functions import AsyncFunctionsClient
 from supabase_functions.errors import FunctionsHttpError, FunctionsRelayError
-from supabase_functions.utils import AsyncClient, FunctionRegion
+from supabase_functions.utils import FunctionRegion
 from supabase_functions.version import __version__
 
 

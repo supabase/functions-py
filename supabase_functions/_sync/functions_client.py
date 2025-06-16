@@ -1,12 +1,11 @@
 from typing import Any, Dict, Literal, Optional, Union
 from warnings import warn
 
-from httpx import HTTPError, Response
+from httpx import Client, HTTPError, Response
 
 from ..errors import FunctionsHttpError, FunctionsRelayError
 from ..utils import (
     FunctionRegion,
-    SyncClient,
     is_http_url,
     is_valid_jwt,
     is_valid_str_arg,
@@ -22,7 +21,7 @@ class SyncFunctionsClient:
         timeout: Optional[int] = None,
         verify: Optional[bool] = None,
         proxy: Optional[str] = None,
-        http_client: Optional[SyncClient] = None,
+        http_client: Optional[Client] = None,
     ):
         if not is_http_url(url):
             raise ValueError("url must be a valid HTTP URL string")
@@ -59,7 +58,7 @@ class SyncFunctionsClient:
             http_client.headers.update({**self.headers})
             self._client = http_client
         else:
-            self._client = SyncClient(
+            self._client = Client(
                 base_url=self.url,
                 headers=self.headers,
                 verify=self.verify,
