@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.10.0](https://github.com/supabase/functions-py/compare/v0.9.4...v0.10.0) (2025-06-19)
+
+
+### Features
+
+* allow injection of httpx client ([#205](https://github.com/supabase/functions-py/issues/205)) ([1d3ce59](https://github.com/supabase/functions-py/commit/1d3ce59d7da6b6224cb4e357125c1cbb47f8647b))
+
 ## [0.9.4](https://github.com/supabase/functions-py/compare/v0.9.3...v0.9.4) (2025-03-26)
 
 
