@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.10.1](https://github.com/supabase/functions-py/compare/v0.10.0...v0.10.1) (2025-06-20)
+
+
+### Bug Fixes
+
+* remove jwt key validation to allow new api keys ([#212](https://github.com/supabase/functions-py/issues/212)) ([5b852e4](https://github.com/supabase/functions-py/commit/5b852e4b92f232c9b6c91e802d2f1cdbb0ab72e2))
+
 ## [0.10.0](https://github.com/supabase/functions-py/compare/v0.9.4...v0.10.0) (2025-06-19)
 
 
