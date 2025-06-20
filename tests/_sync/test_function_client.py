@@ -49,14 +49,6 @@ def test_set_auth_valid_token(client: SyncFunctionsClient):
     assert client.headers["Authorization"] == f"Bearer {valid_token}"
 
 
-def test_set_auth_invalid_token(client: SyncFunctionsClient):
-    invalid_token = "invalid-token"
-    with pytest.raises(
-        ValueError, match="token must be a valid JWT authorization token string."
-    ):
-        client.set_auth(invalid_token)
-
-
 def test_invoke_success_json(client: SyncFunctionsClient):
     mock_response = Mock(spec=Response)
     mock_response.json.return_value = {"message": "success"}

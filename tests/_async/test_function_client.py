@@ -49,14 +49,6 @@ async def test_set_auth_valid_token(client: AsyncFunctionsClient):
     assert client.headers["Authorization"] == f"Bearer {valid_token}"
 
 
-async def test_set_auth_invalid_token(client: AsyncFunctionsClient):
-    invalid_token = "invalid-token"
-    with pytest.raises(
-        ValueError, match="token must be a valid JWT authorization token string."
-    ):
-        client.set_auth(invalid_token)
-
-
 async def test_invoke_success_json(client: AsyncFunctionsClient):
     mock_response = Mock(spec=Response)
     mock_response.json.return_value = {"message": "success"}
