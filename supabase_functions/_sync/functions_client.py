@@ -7,7 +7,6 @@ from ..errors import FunctionsHttpError, FunctionsRelayError
 from ..utils import (
     FunctionRegion,
     is_http_url,
-    is_valid_jwt,
     is_valid_str_arg,
 )
 from ..version import __version__
@@ -102,9 +101,6 @@ class SyncFunctionsClient:
         token : str
             the new jwt token sent in the authorization header
         """
-
-        if not is_valid_jwt(token):
-            raise ValueError("token must be a valid JWT authorization token string.")
 
         self.headers["Authorization"] = f"Bearer {token}"
 

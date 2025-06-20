@@ -8,7 +8,6 @@ from supabase_functions.utils import (
     FunctionRegion,
     SyncClient,
     is_http_url,
-    is_valid_jwt,
     is_valid_str_arg,
 )
 
@@ -71,43 +70,6 @@ def test_is_valid_str_arg(test_input: Any, expected: bool):
 )
 def test_is_http_url(test_input: str, expected: bool):
     assert is_http_url(test_input) == expected
-
-
-@pytest.mark.parametrize(
-    "test_input,expected",
-    [
-        # Valid JWTs
-        (
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U",
-            True,
-        ),
-        (
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U",
-            True,
-        ),
-        # JWT with whitespace
-        (
-            "  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U  ",
-            True,
-        ),
-        # Invalid inputs
-        ("", False),
-        ("not.a.jwt", False),
-        ("invalid.jwt.format.extra.dots", False),
-        ("Bearer ", False),
-        ("Bearer invalid", False),
-        # Invalid types
-        (None, False),
-        (123, False),
-        ([], False),
-        ({}, False),
-        # Invalid base64url format
-        ("invalid@.base64.format", False),
-        ("header.pay!load.signature", False),
-    ],
-)
-def test_is_valid_jwt(test_input: Any, expected: bool):
-    assert is_valid_jwt(test_input) == expected
 
 
 def test_base64url_regex():
