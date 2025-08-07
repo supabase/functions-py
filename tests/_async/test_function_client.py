@@ -4,10 +4,10 @@ import pytest
 from httpx import AsyncClient, HTTPError, Response, Timeout
 
 # Import the class to test
-from supabase_functions import AsyncFunctionsClient
-from supabase_functions.errors import FunctionsHttpError, FunctionsRelayError
-from supabase_functions.utils import FunctionRegion
-from supabase_functions.version import __version__
+from supafunc import AsyncFunctionsClient
+from supafunc.errors import FunctionsHttpError, FunctionsRelayError
+from supafunc.utils import FunctionRegion
+from supafunc.version import __version__
 
 
 @pytest.fixture

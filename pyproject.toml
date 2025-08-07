@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "supabase_functions"
+name = "supafunc"
 version = "0.10.1" # {x-release-please-version}
 description = "Library for Supabase Functions"
 authors = [

@@ -2,7 +2,7 @@ from typing import Dict
 
 import pytest
 
-from supabase_functions import AsyncFunctionsClient, SyncFunctionsClient, create_client
+from supafunc import AsyncFunctionsClient, SyncFunctionsClient, create_client
 
 
 @pytest.fixture

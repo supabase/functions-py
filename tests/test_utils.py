@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 
-from supabase_functions.utils import (
+from supafunc.utils import (
     BASE64URL_REGEX,
     FunctionRegion,
     SyncClient,
