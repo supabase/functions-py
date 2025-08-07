@@ -1,4 +1,7 @@
 from __future__ import annotations
+import warnings
+
+warnings.warn('The `supafunc` package is deprecated, is not going to receive updates in the future. Please, use `supabase_functions` instead.', DeprecationWarning, stacklevel=2)
 
 from typing import Literal, Union, overload
 

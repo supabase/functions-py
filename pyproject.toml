@@ -9,6 +9,9 @@ authors = [
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/supabase/functions-py"
+classifiers = [
+    "Development Status :: 7 - Inactive",
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
