@@ -114,7 +114,7 @@ class AsyncFunctionsClient:
         invoke_options : object with the following properties
             `headers`: object representing the headers to send with the request
             `body`: the body of the request
-            `responseType`: how the response should be parsed. The default is `json`
+            `responseType`: how the response should be parsed. The default is `text/plain`
         """
         if not is_valid_str_arg(function_name):
             raise ValueError("function_name must a valid string value.")
